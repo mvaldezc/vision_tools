@@ -49,10 +49,12 @@ Depending on how you set your workspace, `catkin build` may be used instead of `
 
 If all the steps where successfully completed,  no errors should appear after using `catkin_make` or `catkin build` to build the code. If you have any doubt about using ROS, please check [ROS documentation](http://wiki.ros.org/) and follow the tutorials. 
 
-Note: A dynamixel library error would appear if you haven't set your library yet, if you are not interested in using Dynamixel motors, please errase the corresponding lines of the track program in the package CMakeLists.txt and delete "dynamixel_sdk" that appears inside "find_package", then build your workspace again and the problem should be fixed.
+Note: A dynamixel library error would appear if you haven't set your library yet, if you are not interested in using Dynamixel motors, please errase the corresponding lines of the track program in the package CMakeLists.txt and delete the text "dynamixel_sdk" that appears inside "find_package", then build your workspace again and the problem should be fixed.
 
 Before running the programs, some modifications to the code have to be made because of the changes in directories for your machine. 
-For the SURF node: Open /vision_tools/src/SURF.cpp with your favorite text editor. Look for the `path_image` variable assignment inside the main function, change it for your corresponding path, in my case it is `path_image= "/home/marco/catkin_ws/src/vision_tools/img/cuad2.png";`
+For the SURF node: In the downloaded repository, open `/vision_tools/src/SURF.cpp` with your favorite text editor. Look for the `path_image` variable assignment inside the main function, change it for your corresponding path, in my case it is `path_image= "/home/marco/catkin_ws/src/vision_tools/img/cuad2.png";`
+For the detect node: open `/vision_tools/src/DetectBall.cpp` and change the ball.cascade path inside the main function, II section. In my case it looks like `if( !ball_cascade.load("/home/marco/catkin_ws/src/vision_tools/cascade/ballDetector.xml" ))`
+
 #### Using the programs
 
 In order to verify that the installation was successful, run the following command:
