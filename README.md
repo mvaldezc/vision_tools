@@ -83,7 +83,8 @@ rosrun vision_tools particlefilter
 ```
 rosrun vision_tools SURF 
 ```
-##### Dynamixel motors
+###### Dynamixel motors
 ```
 rosrun vision_tools SURF
 ```
+## 4. Explanation
