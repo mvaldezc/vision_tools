@@ -1,6 +1,6 @@
 # Vision-detect-and-track
 ## 1. Description
-The main  objective of this repository is to provide a set of computer vision tools to detect and track objects depending on certain characteristics, however, it was designed particularly to identify a soccer ball inside a soccer field. OpenCV in ROS was used to develop the algorithms. The tools implemented in the repository are:
+The main  objective of this repository is to provide a set of computer vision tools to detect and track objects depending on certain characteristics, however, it was particularly designed to identify a soccer ball inside a soccer field. These systems where developed using the Robotic Operating System and the Open source Computer Vision library for C++. The tools implemented in the repository are:
 * Kalman Filter + HAAR/LBP Cascade
 * Particle Filter + Color Detection
 * Kalman Filter + Blob Color Detection
@@ -33,3 +33,11 @@ The main  objective of this repository is to provide a set of computer vision to
 
 For more details check this readme: https://github.com/aaceves/example_dynamixel
 
+## 3. Installation
+
+Once the requirements have been met and the [catkin workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) have been built, the next step is to clone and build this repository, using the following commands:
+```
+cd catkin_ws/src
+git clone
+
+```
