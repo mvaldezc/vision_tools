@@ -1,7 +1,7 @@
 # Vision-detect-and-track
 ## 1. Descripción
 The main  objective of this repository is to provide a set of computer vision tools to detect and track objects depending on their characteristics, but it was designed particularly to identify a soccer ball inside a soccer field. OpenCV in ROS was used to develop the algorithms. The tools implemented in the repository are:
-* Kalman Filter + LBP Cascade
+* Kalman Filter + HAAR/LBP Cascade
 * Particle Filter + Color Detection
 * Kalman Filter + Blob Color Detection
 * SURF
@@ -20,3 +20,16 @@ The main  objective of this repository is to provide a set of computer vision to
     And if you want to train your own detection cascade:
 
 4. [Computer Vision toolbox for MATLAB](https://www.mathworks.com/products/computer-vision.html)
+
+#### Hardware
+
+1. Camera
+
+    In order to use Dynamixel motors, the following components are needed:
+    
+2. Dynamixel motors
+3. Switched Modulated Power Supplier
+4. U2D2-power-hub / USB2Dynamixel + SMPS2Dynamixel
+
+For more details check this readme: https://github.com/aaceves/example_dynamixel
+
