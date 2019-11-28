@@ -57,19 +57,18 @@ roscore
 cntrl+shift+T
 rosrun vision_tools particlefilter
 ```
-Then a screen with your webcam images and the particle filter would appear.
+Then a screen with your webcam images and the particle filter must appear.
 The way to run each of the ROS nodes is described below:
 
 ###### Kalman Filter + HAAR/LBP Cascade
 ```
 rosrun vision_tools detect <debugger mode (0/1)> [path to video]
-```
-Examples:
-For offline debugger mode:
-`rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'`
 
-For realtime debugger mode:
-`rosrun vision_tools detect 1`
+Examples:
+For offline debugger mode:  rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'
+
+For realtime debugger mode: rosrun vision_tools detect 1
+```
 ###### Kalman Filter + Blob Color Detection
 ```
 rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
