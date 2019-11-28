@@ -17,6 +17,6 @@ The main  objective of this repository is to provide a set of computer vision to
 2. [OpenCV3 for ROS](http://wiki.ros.org/vision_opencv)
 3. [Dynamixel libraries for ROS](https://github.com/aaceves/example_dynamixel)
 
-And if you want to train your own detection cascade:
+    And if you want to train your own detection cascade:
 
 4. [Computer Vision toolbox for MATLAB](https://www.mathworks.com/products/computer-vision.html)
