@@ -48,6 +48,7 @@ source devel/setup.bash
 Depending on how you set your workspace, `catkin build` may be used instead of `catkin_make`.
 
 If all the steps where successfully completed,  no errors should appear after using `catkin_make` or `catkin build` to build the code. If you have any doubt about using ROS, please check [ROS documentation](http://wiki.ros.org/) and follow the tutorials. 
+
 Note: A dynamixel library error would appear if you haven't set your library yet, if you are not interested in using Dynamixel motors, please errase the corresponding lines of the track program in the package CMakeLists.txt and delete "dynamixel_sdk" that appears inside "find_package", then build your workspace again and the problem should be fixed.
 
 Before running the programs, some modifications to the code have to be made because of the changes in directories for your machine. 
