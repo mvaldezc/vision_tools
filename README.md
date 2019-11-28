@@ -96,4 +96,4 @@ rosrun vision_tools track
 ## 4. Explanation
 #### Kalman Filter
 The [Kalman Filter](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) algorithm was implemented in code because of its good tracking, noise rejection and observer properties. In these package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (cascade detector), which implements some corrections on minor bugs and optimizes the code to increase the performance. 
-In order to detect and track the soccer ball, a Linear State Space Gaussian Model of an uniform acceleration particle was used.
+In order to detect and track the soccer ball, a Discrete-Time Linear State Space Gaussian Model of an uniform acceleration particle was used.
