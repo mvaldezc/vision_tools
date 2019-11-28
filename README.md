@@ -13,7 +13,7 @@ The main  objective of this repository is to provide a set of computer vision to
 
 #### Software
 
-1. [ROS Kinetic Kame](http://wiki.ros.org/kinetic/Installation)
+1. [ROS Kinetic Kame](http://wiki.ros.org/kinetic)
 2. [OpenCV3 for ROS](http://wiki.ros.org/vision_opencv)
 3. [Dynamixel libraries for ROS](https://github.com/aaceves/example_dynamixel)
 
