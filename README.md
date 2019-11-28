@@ -66,18 +66,24 @@ rosrun vision_tools detect <debugger mode (0/1)> [path to video]
 
 Examples:
 For offline debugger mode:  rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'
-
 For realtime debugger mode: rosrun vision_tools detect 1
 ```
 ###### Kalman Filter + Blob Color Detection
 ```
 rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
+
+Examples:
+For offline mode: rosrun vision_tools detect 0
 ```
-###### Kalman Filter + Blob Color Detection
+###### Particle Filter + Color Detection
 ```
-rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
+rosrun vision_tools particlefilter
 ```
-###### Kalman Filter + Blob Color Detection
+###### SURF
 ```
-rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
+rosrun vision_tools SURF 
+```
+##### Dynamixel motors
+```
+rosrun vision_tools SURF
 ```
