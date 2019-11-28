@@ -35,9 +35,17 @@ For more details check this readme: https://github.com/aaceves/example_dynamixel
 
 ## 3. Installation
 
-Once the requirements have been met and the [catkin workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) have been built, the next step is to clone and build this repository, using the following commands:
+Once the requirements have been met and the [catkin workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) have been built, the next step is to clone and build this repository using the following commands:
 ```
 cd catkin_ws/src
-git clone
-
+git clone https://github.com/marcovc41/vision-detect-and-track.git
+cd ..
+catkin_make
 ```
+Depending on how you set your workspace, `catkin build` may be used instead of `catkin_make`.
+
+If all the steps where successfully completed,  no errors should appear after using `catkin_make` or `catkin build` to build the code. If you have any doubt about using ROS, please check [ROS documentation](http://wiki.ros.org/) and follow the tutorials. Note: A dynamixel library error would appear if you haven't set your library yet, if you are not interested in using Dynamixel motors, please errase the corresponding lines of the track program in the package CMakeList and delete "dynamixel_sdk" that appears inside "find_package", then build your workspace again and the problem should be fixed.
+
+
+
+In
