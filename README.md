@@ -7,3 +7,8 @@ Los algoritmos que se encuentran implementados son:
 * Kalman Filter + Blob Color Detection
 * SURF
 * Dynamixel Servomotors movement
+
+![Image of kalman filter detection](https://github.com/marcovc41/vision-detect-and-track/blob/master/read_img/captura_1.png)
+
+## 2. Requerimientos
+
