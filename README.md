@@ -1,6 +1,6 @@
 # Vision-detect-and-track
 ## 1. Description
-The main  objective of this repository is to provide a set of computer vision tools to detect and track objects depending on certain characteristics, but it was designed particularly to identify a soccer ball inside a soccer field. OpenCV in ROS was used to develop the algorithms. The tools implemented in the repository are:
+The main  objective of this repository is to provide a set of computer vision tools to detect and track objects depending on certain characteristics, however, it was designed particularly to identify a soccer ball inside a soccer field. OpenCV in ROS was used to develop the algorithms. The tools implemented in the repository are:
 * Kalman Filter + HAAR/LBP Cascade
 * Particle Filter + Color Detection
 * Kalman Filter + Blob Color Detection
