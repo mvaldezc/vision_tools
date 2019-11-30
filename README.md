@@ -23,7 +23,7 @@ The main  objective of this repository is to provide a set of computer vision to
 
 ### Hardware
 
-1. Camera
+1. Webcam
 
     In order to use Dynamixel motors, the following components are needed:
     
