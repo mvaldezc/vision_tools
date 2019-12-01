@@ -1,8 +1,9 @@
 # Vision-detect-and-track
 ## 1. Description
 <img src="read_img/captura_1.png" align="right" width="312" height="239"/>
-
+<p align="justify"> 
 The main  objective of this repository is to provide a set of computer vision tools to detect and track objects depending on certain characteristics, however, it was particularly designed to identify a soccer ball inside a soccer field. These systems where developed using the Robotic Operating System and the Open source Computer Vision library for C++11. The tools implemented in the repository are:
+</p>
 
 * Kalman Filter + HAAR/LBP Cascade
 * Particle Filter + Color Detection
