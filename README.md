@@ -48,13 +48,12 @@ catkin_make
 source devel/setup.bash
 ```
 Depending on how you set your workspace, `catkin build` may be used instead of `catkin_make`.
-<p align="justify"> 
-If all the steps where successfully completed,  no errors should appear after building the code. Note: A dynamixel library error would appear if you haven't set your library yet. If you are not interested in using Dynamixel motors, please errase the corresponding lines of the "track" program in the package CMakeLists.txt and delete the text "dynamixel_sdk" that appears inside "find_package", then build your workspace again and the problem should be fixed.</p>
+
+If all the steps where successfully completed,  no errors should appear after building the code. Note: A dynamixel library error would appear if you haven't set your library yet. If you are not interested in using Dynamixel motors, please errase the corresponding lines of the "track" program in the package CMakeLists.txt and delete the text "dynamixel_sdk" that appears inside "find_package", then build your workspace again and the problem should be fixed.
 
 Before running the programs, some modifications to the code are needed due to the changes in directories for your machine. 
 
-<p align="justify"> 
-For the SURF node: In the downloaded repository, open `/vision_tools/src/SURF.cpp` with your favorite text editor. Look for the `path_image` variable assignment inside the main function, change it for your corresponding path, in my case it is `path_image= "/home/marco/catkin_ws/src/vision_tools/img/cuad2.png";`. The path that you have to write is the path of the sample image that you will search using the SURF algorithm.</p>
+For the SURF node: In the downloaded repository, open `/vision_tools/src/SURF.cpp` with your favorite text editor. Look for the `path_image` variable assignment inside the main function, change it for your corresponding path, in my case it is `path_image= "/home/marco/catkin_ws/src/vision_tools/img/cuad2.png";`. The path that you have to write is the path of the sample image that you will search using the SURF algorithm.
 
 For the detect node: open `/vision_tools/src/DetectBall.cpp` and change the ball.cascade path inside the main function, II section. In my case it looks like `if( !ball_cascade.load("/home/marco/catkin_ws/src/vision_tools/cascade/ballDetector.xml" ))`, you have to provide the complete path of the cascade detector trained file that is located in the cloned repository `/vision_tools/cascade/ballDetector.xml`. After these steps, build the packages again and you will be able to use the programs.
 
