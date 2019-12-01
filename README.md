@@ -1,13 +1,16 @@
 # Vision-detect-and-track
 ## 1. Description
+<img src="read_img/captura_1.png" align="right" width="312" height="239"/>
+
 The main  objective of this repository is to provide a set of computer vision tools to detect and track objects depending on certain characteristics, however, it was particularly designed to identify a soccer ball inside a soccer field. These systems where developed using the Robotic Operating System and the Open source Computer Vision library for C++11. The tools implemented in the repository are:
+
 * Kalman Filter + HAAR/LBP Cascade
 * Particle Filter + Color Detection
 * Kalman Filter + Color Detection
 * SURF
-* Dynamixel Servomotors Control
+* Camera Angular Position Control (Dynamixel Servomotors)
 
-![Image of kalman filter detection](https://github.com/marcovc41/vision-detect-and-track/blob/master/read_img/captura_1.png)
+
 
 ## 2. Requirements
 
@@ -95,6 +98,9 @@ rosrun vision_tools track
 ```
 ## 4. Explanation
 ### ROS
+
+<img src="read_img/kinetic.png" align="right" width="157" height="130"/>
+
 The [Robot Operating System (ROS)](https://www.ros.org/) is a flexible modular framework for writing robot software. It is a set of open source software libraries and tools that aim to simplify developing robot aplications. This ecosystem provides services such as hardware abstraction, low-level device control, package management, communications infrastructure, diagnostics, pose estimation, localization, mapping, navigation, GUI, simulation, computer vision, etc. If you want to know more about using ROS, please check [ROS1 wiki](http://wiki.ros.org/ROS).
 
 Due to the amount of packages available, Kinetic Kame [ROS distribution](http://wiki.ros.org/Distributions) is used for this package. However, it is getting older and it will reach its end of life starting 2021, therefore a migration from Kinetic Kame to Melodic Morenia must be seeked soon.
