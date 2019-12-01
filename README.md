@@ -93,14 +93,25 @@ rosrun vision_tools track
 
 <img src="read_img/kinetic.png" align="right" width="157" height="130"/>
 
-The [Robot Operating System (ROS)](https://www.ros.org/) is a flexible modular framework for writing robot software. It is a set of open source software libraries and tools that aim to simplify developing robot aplications. This ecosystem provides services such as hardware abstraction, low-level device control, package management, communications infrastructure, diagnostics, pose estimation, localization, mapping, navigation, GUI, simulation, computer vision, etc. If you want to know more about using ROS, please check [ROS1 wiki](http://wiki.ros.org/ROS).{style=text-align:justify}
+The [Robot Operating System (ROS)](https://www.ros.org/) is a flexible modular framework for writing robot software. It is a set of open source software libraries and tools that aim to simplify developing robot aplications. This ecosystem provides services such as hardware abstraction, low-level device control, package management, communications infrastructure, diagnostics, pose estimation, localization, mapping, navigation, GUI, simulation, computer vision, etc. If you want to know more about using ROS, please check [ROS1 wiki](http://wiki.ros.org/ROS).
 
 Due to the amount of packages available, Kinetic Kame [ROS distribution](http://wiki.ros.org/Distributions) is used for this package. However, it is getting older and it will reach its end of life starting 2021, therefore a migration from Kinetic Kame to Melodic Morenia must be seeked soon.
+
+#### OpenCV
+
+
 
 #### Kalman Filter
 The [Kalman Filter](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) algorithm was implemented in code because of its good tracking, noise rejection and observer properties. In this package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (cascade detector), which implements some corrections on minor bugs and optimizes the code to increase the performance. 
 In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian State Space Model of a particle with uniform acceleration was used.
 ![Image of State Space Model](https://github.com/marcovc41/vision-detect-and-track/blob/master/read_img/kalman1.PNG)
+
+#### Particle Filter
+
+
+#### Cascade Object Detector
+
+
 
 (https://www.mathworks.com/videos/series/understanding-kalman-filters.html)
 https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html
