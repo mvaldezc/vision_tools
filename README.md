@@ -71,17 +71,10 @@ The way to run each of the ROS nodes is described below:
 ###### Kalman Filter + HAAR/LBP Cascade
 ```
 rosrun vision_tools detect <debugger mode (0/1)> [path to video]
-
-Examples:
-For offline debugger mode:  rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'
-For realtime debugger mode: rosrun vision_tools detect 1
 ```
 ###### Kalman Filter + Color Detection
 ```
 rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
-
-Examples:
-For offline mode: rosrun vision_tools kalmanfilter 0
 ```
 ###### Particle Filter + Color Detection
 ```
@@ -113,3 +106,11 @@ In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian St
 https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html
 https://www.ros.org/
 http://wiki.ros.org/ROS
+
+
+Examples:
+For offline debugger mode:  rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'
+For realtime debugger mode: rosrun vision_tools detect 1
+
+Examples:
+For offline mode: rosrun vision_tools kalmanfilter 0
