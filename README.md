@@ -111,14 +111,15 @@ In order to improve the programs performance, [Open Computer Language (OpenCL)](
 
 In simple terms, the Kalman Filter is an observer that estimates the state of a system in the presence of noisy measurements [1]. In more precise terms it is a recursive filter, manifested as a set of mathematical equations that implement a predictor-corrector type estimator that is optimal in the sense that it minimizes the estimated error covariance. This algorithm is commonly used for tracking tasks, motion prediction and multi-sensor fusion. [2] If you are not acquainted with this filter, you can check this [Matlab video series](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) and read [Welch and Bishop introduction](https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf). Also Matlab documentation includes a demonstration of the Kalman Filter for [object tracking with vision](https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html).
 
-Because of this properties, the Kalman Filter algorithm was implemented in code in order to track the ball and estimate its position, velocity and acceleration. In this package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (KF with cascade object detector), which implements some corrections on minor bugs and optimizes the code to increase the performance.
+Because of these properties, the Kalman Filter algorithm was implemented in code in order to track the ball and estimate its position, velocity and acceleration. In this package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (KF with cascade object detector), which implements some corrections on minor bugs and optimizes the code to increase the performance.
 In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian State Space Model of a particle with uniform acceleration was used, since it would detect the change of acceleration due to friction losses and have a better prediction:
 
 <p align="center">
 <img src="read_img/sys_eq.PNG" width="467" height="422"/>
 </p>
 
-
+Having this model defined, the 5 KF equations were implemented:
+> xk=
 
 #### Particle Filter
 
