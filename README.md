@@ -107,7 +107,7 @@ In order to improve the programs performance, [Open Computer Language (OpenCL)](
 
 #### Kalman Filter
 
-<img src="read_img/kf-matlab.jpg" align="right"/>
+<img src="read_img/kf-matlab.png" align="right" width="236" height="134"/>
 
 In simple terms, the Kalman Filter is an observer that estimates the state of a system in the presence of noisy measurements [1]. In more precise terms it is a recusive filter, manifested as a set of mathematical equations that implement a predictor-corrector type estimator that is optimal in the sense that it minimizes the estimated error covariance. This algorithm is commonly used for tracking tasks, motion prediction and multi-sensor fusion. [2] If you are not acquainted with this filter, you can check this [matlab video series](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) and read [Welch and Bishop introduction](https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf). Also matlab documentation includes a demonstration of the kalman filter for [object tracking with vision](https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html).
 
