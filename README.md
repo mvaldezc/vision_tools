@@ -113,7 +113,7 @@ In simple terms, the Kalman Filter is an observer that estimates the state of a 
 
 Because of this properties, the Kalman Filter algorithm was implemented in code to achieve the tracking task and estimate the ball position, velocity and acceleration. In this package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (KF with cascade object detector), which implements some corrections on minor bugs and optimizes the code to increase the performance. 
 In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian State Space Model of a particle with uniform acceleration was used.
-![Image of State Space Model](https://github.com/marcovc41/vision-detect-and-track/blob/master/read_img/kalman1.PNG)
+![Image of State Space Model](https://github.com/marcovc41/vision-detect-and-track/blob/master/read_img/sys_eq.PNG)
 
 #### Particle Filter
 
