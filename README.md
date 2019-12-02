@@ -112,8 +112,11 @@ In order to improve the programs performance, [Open Computer Language (OpenCL)](
 In simple terms, the Kalman Filter is an observer that estimates the state of a system in the presence of noisy measurements [1]. In more precise terms it is a recusive filter, manifested as a set of mathematical equations that implement a predictor-corrector type estimator that is optimal in the sense that it minimizes the estimated error covariance. This algorithm is commonly used for tracking tasks, motion prediction and multi-sensor fusion. [2] If you are not acquainted with this filter, you can check this [matlab video series](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) and read [Welch and Bishop introduction](https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf). Also matlab documentation includes a demonstration of the kalman filter for [object tracking with vision](https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html).
 
 Because of this properties, the Kalman Filter algorithm was implemented in code to achieve the tracking task and estimate the ball position, velocity and acceleration. In this package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (KF with cascade object detector), which implements some corrections on minor bugs and optimizes the code to increase the performance. 
-In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian State Space Model of a particle with uniform acceleration was used.
-![Image of State Space Model](https://github.com/marcovc41/vision-detect-and-track/blob/master/read_img/sys_eq.PNG)
+In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian State Space Model of a particle with uniform acceleration was used:
+
+
+<img src="read_img/sys_eq.PNG" align="center" width="467" height="422"/>
+
 
 #### Particle Filter
 
