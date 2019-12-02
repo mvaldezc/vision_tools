@@ -40,7 +40,7 @@ For more details check this readme: https://github.com/aaceves/example_dynamixel
 #### Installation Guide
 
 Once the requirements have been met and the [catkin workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) have been set up, the next step is to clone and build this repository typing the following commands in a new terminal:
-```
+```bash
 cd catkin_ws/src
 git clone https://github.com/marcovc41/vision-detect-and-track.git
 cd ..
