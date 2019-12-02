@@ -119,7 +119,7 @@ In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian St
 </p>
 
 Having this model defined, the 5 KF equations were implemented:
-> xk=
+
 
 #### Particle Filter
 
