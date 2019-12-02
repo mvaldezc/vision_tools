@@ -2,7 +2,7 @@
 ## 1. Description
 <img src="read_img/captura_1.png" align="right" width="312" height="239"/>
 <p align="justify"> 
-The main  objective of this repository is to provide a set of computer vision tools to detect and track objects depending on certain characteristics, however, it was particularly designed to identify a soccer ball inside a soccer field. These systems where developed using the Robotic Operating System and the Open source Computer Vision library for C++11. The tools implemented in the repository are:
+The main  objective of this repository is to provide a set of computer vision tools to detect and track objects depending on certain characteristics, however, it was particularly designed to identify a soccer ball inside a soccer field. These systems where developed using the Robotic Operating System and the Open Source Computer Vision library for C++11. The tools implemented in the repository are:
 </p>
 
 * Kalman Filter + HAAR/LBP Cascade
@@ -17,7 +17,7 @@ The main  objective of this repository is to provide a set of computer vision to
 #### Software
 
 1. [ROS1 Kinetic Kame](http://wiki.ros.org/kinetic)
-2. [OpenCV3 for ROS](http://wiki.ros.org/vision_opencv)
+2. [OpenCV3 for ROS](https://github.com/aaceves/opencv_tutorial)
 3. [Dynamixel libraries for ROS](https://github.com/aaceves/example_dynamixel)
 
     And if you want to train your own detection cascade:
@@ -99,7 +99,9 @@ Due to the amount of packages available, Kinetic Kame [ROS distribution](http://
 
 #### OpenCV
 
+<img src="read_img/opencv.png" align="right" width="100" height="123"/>
 
+The [Open Source Computer Vision Library](https://opencv.org/) is a set of software functions that provide a common infrastructure to computer vision and machine learning applications with over 2500 optimized algorithms. These algorithms can be used to detect faces, identify objects, track moving objects, image processing, etc. OpenCV3 is the default version for ROS Kinetic and is already system dependency. In order to install it check this [repository](https://github.com/aaceves/opencv_tutorial) and [ROS documentation](wiki.ros.org/vision_opencv). To about the different functions available and application examples, check the [tutorials](https://docs.opencv.org/3.3.1/d9/df8/tutorial_root.html)
 
 #### Kalman Filter
 The [Kalman Filter](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) algorithm was implemented in code because of its good tracking, noise rejection and observer properties. In this package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (cascade detector), which implements some corrections on minor bugs and optimizes the code to increase the performance. 
