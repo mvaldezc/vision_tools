@@ -39,7 +39,7 @@ For more details check this readme: https://github.com/aaceves/example_dynamixel
 ## 3. Installation
 #### Installation Guide
 
-Once the requirements have been met and the [catkin workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) have been built, the next step is to clone and build this repository using the following commands:
+Once the requirements have been met and the [catkin workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) have been set up, the next step is to clone and build this repository typing the following commands in a new terminal:
 ```
 cd catkin_ws/src
 git clone https://github.com/marcovc41/vision-detect-and-track.git
@@ -49,11 +49,11 @@ source devel/setup.bash
 ```
 Depending on how you set your workspace, `catkin build` may be used instead of `catkin_make`.
 
-If all the steps where successfully completed,  no errors should appear after building the code. Note: A dynamixel library error would appear if you haven't set your library yet. If you are not interested in using Dynamixel motors, please errase the corresponding lines of the "track" program in the package CMakeLists.txt and delete the text "dynamixel_sdk" that appears inside "find_package", then build your workspace again and the problem should be fixed.
+If all the steps where successfully completed,  no errors should appear after building the code. Note: A dynamixel library error would appear if you haven't installed dynamixel library yet. If you are not interested in using dynamixel motors, please errase the corresponding lines for the "track program" and the text "dynamixel_sdk" that appears inside "find_package" in the package CMakeLists.txt, then build your workspace again and the problem should be fixed.
 
-Before running the programs, some modifications to the code are needed due to the changes in directories for your machine. 
+Before running the nodes, some modifications to the code are needed due to the changes in directories for your machine. 
 
-For the SURF node: In the downloaded repository, open `/vision_tools/src/SURF.cpp` with your favorite text editor. Look for the `path_image` variable assignment inside the main function, change it for your corresponding path, in my case it is `path_image= "/home/marco/catkin_ws/src/vision_tools/img/cuad2.png";`. The path that you have to write is the path of the sample image that you will search using the SURF algorithm.
+For the SURF node: In the downloaded repository, open `/vision_tools/src/SURF.cpp` with your favorite text editor. Look for the `path_image` variable assignment inside the main function, change it according to your corresponding path, in my case it is `path_image= "/home/marco/catkin_ws/src/vision_tools/img/cuad2.png";`. The path that you have to write is the path of the sample image that you will search using the SURF algorithm.
 
 For the detect node: open `/vision_tools/src/DetectBall.cpp` and change the ball.cascade path inside the main function, II section. In my case it looks like `if( !ball_cascade.load("/home/marco/catkin_ws/src/vision_tools/cascade/ballDetector.xml" ))`, you have to provide the complete path of the cascade detector trained file that is located in the cloned repository `/vision_tools/cascade/ballDetector.xml`. After these steps, build the packages again and you will be able to use the programs.
 
@@ -65,7 +65,7 @@ roscore
 cntrl+shift+T
 rosrun vision_tools particlefilter
 ```
-Then a screen with your webcam image and the particle filter must appear.
+Then rosmaster will arise and a screen with your webcam image and the particle filter must appear.If these happens, congratulations, you are now ready to prove each of the algorithms included in this package.
 The way to run each of the ROS nodes is described below:
 
 ###### Kalman Filter + HAAR/LBP Cascade
