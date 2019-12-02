@@ -1,7 +1,7 @@
-# Vision-detect-and-track
+# Vision detect and track
 ## 1. Description
 <img src="read_img/captura_1.png" align="right" width="312" height="239"/>
-<p align="justify"> 
+<p align="justify">
 The main  objective of this repository is to provide a set of computer vision tools to detect and track objects and to educate beginners about the emerging technologies that are used in robotic applications.  These systems where developed using the Robotic Operating System and the Open Source Computer Vision library for C++11. It is important to remark that this package was particularly designed to identify a soccer ball inside a soccer field. The tools implemented in the repository are:
 </p>
 
@@ -29,7 +29,7 @@ The main  objective of this repository is to provide a set of computer vision to
 1. Webcam
 
     In order to use Dynamixel motors, the following components are needed:
-    
+
 2. Dynamixel motors
 3. Switched Modulated Power Supplier
 4. U2D2-power-hub / USB2Dynamixel + SMPS2Dynamixel
@@ -51,7 +51,7 @@ Depending on how you set your workspace, `catkin build` may be used instead of `
 
 If all the steps where successfully completed,  no errors should appear after building the code. Note: A dynamixel library error would appear if you haven't installed dynamixel library yet. If you are not interested in using dynamixel motors, please errase the corresponding lines that refer to the track program in the package CMakeLists (`vision_tools/CMakeLists.txt`) and also the text "dynamixel_sdk" that appears inside "find_package" function, then build your workspace again and the problem should be fixed.
 
-Before running the nodes, some modifications to the code are needed due to the changes in directories for your machine. 
+Before running the nodes, some modifications to the code are needed due to the changes in directories for your machine.
 
 For the SURF node: In the downloaded repository, open `/vision_tools/src/SURF.cpp` with your favorite text editor. Look for the `path_image` variable assignment inside the main function, change it according to your corresponding path, in my case it is `path_image= "/home/marco/catkin_ws/src/vision_tools/img/cuad2.png";`. The path that you have to write is the path of the sample image that you will search using the SURF algorithm.
 
@@ -82,7 +82,7 @@ rosrun vision_tools particlefilter
 ```
 ###### SURF
 ```
-rosrun vision_tools SURF 
+rosrun vision_tools SURF
 ```
 ###### Dynamixel motors
 ```
@@ -103,15 +103,15 @@ Due to the amount of packages available, Kinetic Kame [ROS distribution](http://
 
 The [Open Source Computer Vision Library](https://opencv.org/) is a set of software functions that provide a common infrastructure for computer vision and machine learning applications with over 2500 optimized algorithms. These algorithms can be used to detect faces, identify objects, track moving objects, image processing, etc. OpenCV3 is the default version for ROS Kinetic and it is linked to ROS in such a way that it is already a system dependency. In order to install this library, check this [repository](https://github.com/aaceves/opencv_tutorial) and [ROS documentation](https://wiki.ros.org/vision_opencv). I attached some links if you want to know more about the different [functions](https://docs.opencv.org/2.4/modules/refman.html) available and application [examples and tutorials](https://docs.opencv.org/3.3.1/d9/df8/tutorial_root.html). More tutorials (in spanish) can be found [here](http://acodigo.blogspot.com/p/tutorial-opencv.html).
 
-In order to improve the programs performance, [Open Computer Language (OpenCL)](https://opencv.org/opencl/) acceleration for OpenCV was used, providing some OpenCV algorithms access to the GPU, therefore GPU instead of CPU instructions will be executed automatically if a compatible device is available and makes sense from the performance point of view. OpenCL is compatible with AMD and Intel GPUs. 
+In order to improve the programs performance, [Open Computer Language (OpenCL)](https://opencv.org/opencl/) acceleration for OpenCV was used, providing some OpenCV algorithms access to the GPU, therefore GPU instead of CPU instructions will be executed automatically if a compatible device is available and makes sense from the performance point of view. OpenCL is compatible with AMD and Intel GPUs.
 
 #### Kalman Filter
 
 <img src="read_img/kf-matlab.png" align="right" width="236" height="134"/>
 
-In simple terms, the Kalman Filter is an observer that estimates the state of a system in the presence of noisy measurements [1]. In more precise terms it is a recusive filter, manifested as a set of mathematical equations that implement a predictor-corrector type estimator that is optimal in the sense that it minimizes the estimated error covariance. This algorithm is commonly used for tracking tasks, motion prediction and multi-sensor fusion. [2] If you are not acquainted with this filter, you can check this [matlab video series](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) and read [Welch and Bishop introduction](https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf). Also matlab documentation includes a demonstration of the kalman filter for [object tracking with vision](https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html).
+In simple terms, the Kalman Filter is an observer that estimates the state of a system in the presence of noisy measurements [1]. In more precise terms it is a recusive filter, manifested as a set of mathematical equations that implement a predictor-corrector type estimator that is optimal in the sense that it minimizes the estimated error covariance. This algorithm is commonly used for tracking tasks, motion prediction and multi-sensor fusion. [2] If you are not acquainted with this filter, you can check this [matlab video series](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) and read [Welch and Bishop introduction](https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf). Also matlab documentation includes a demonstration of the Kalman Filter for [object tracking with vision](https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html).
 
-Because of this properties, the Kalman Filter algorithm was implemented in code in order to track the ball and estimate its position, velocity and acceleration. In this package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (KF with cascade object detector), which implements some corrections on minor bugs and optimizes the code to increase the performance. 
+Because of this properties, the Kalman Filter algorithm was implemented in code in order to track the ball and estimate its position, velocity and acceleration. In this package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (KF with cascade object detector), which implements some corrections on minor bugs and optimizes the code to increase the performance.
 In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian State Space Model of a particle with uniform acceleration was used, since it would detect the change of acceleration due to friction losses and have a better prediction:
 
 <p align="center">
