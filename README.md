@@ -187,6 +187,13 @@ The steps for training your own cascade are described below, however if you want
 
 
 
+## References:
+
+1.
+2.
+3.
+4.
+5.
 
 (https://www.mathworks.com/videos/series/understanding-kalman-filters.html)
 https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html
