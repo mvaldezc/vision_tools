@@ -270,6 +270,9 @@ Now, the main algorithm is presented, first a submatrix of the captured frame is
 ```
 
 <br/>
+The final image is shown and some variable preparations are made. In this part of the code, the fps measurement is done and also a report of the percentage of good and bad detection is presented.
+<br/>
+<br/>
 
 
 ```C++
@@ -318,7 +321,14 @@ Now, the main algorithm is presented, first a submatrix of the captured frame is
 
 	return 0;
 }
+```
 
+<br/>
+The Kalman Filter and the getErrorEllipse functions are declared.
+<br/>
+<br/>
+
+```C++
 
 /*************************************FILTRO DE KALMAN*************************************/
 
@@ -337,7 +347,6 @@ void filtroKalman(){
 		xk=xk+K*(yk-C*xk);
 		Pk=(I - K*C)*Pk;
 	}
-
 
 }
 
@@ -369,7 +378,14 @@ cv::Rect getErrorEllipse(double chisquare_val, cv::Point2f mean, cv::Mat covmat)
 
 	return cv::Rect(x,y,w,h);
 }
+```
 
+<br/>
+The measurement function is presented here, in the case of the color detection version, this is what changes in the algorithm. In this case, the center of the cascade detection is obtained and returned to the main function.
+<br/>
+<br/>
+
+```C++
 
 void detect_ball(cv::Rect rectP){
 	ball_cascade.detectMultiScale( recorte_gray, balls );
@@ -394,7 +410,14 @@ void detect_ball(cv::Rect rectP){
 	}
 
 }
+```
 
+<br/>
+Finally, this miscellaneous function is presented, this has the aim of drawing a fps meter with a bar chart.
+<br/>
+<br/>
+
+```
 void dibujar_barra(double FPS){
 	if(FPS>30)       std::cout << "  [\033[1;31m|||\033[33m||||\033[32m||||||||" << std::flush;
 	else if(FPS>=28) std::cout << "  [\033[1;31m|||\033[33m||||\033[32m||||||| " << std::flush;
