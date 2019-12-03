@@ -14,7 +14,7 @@ The main  objective of this repository is to provide a set of computer vision to
 
 
 ## 2. Requirements
-#### Software
+###  Software
 
 1. [ROS1 Kinetic Kame](http://wiki.ros.org/kinetic/Installation)
 2. [OpenCV3 for ROS](https://github.com/aaceves/opencv_tutorial)
@@ -24,7 +24,7 @@ The main  objective of this repository is to provide a set of computer vision to
 
 4. [Computer Vision toolbox for MATLAB](https://www.mathworks.com/products/computer-vision.html)
 
-#### Hardware
+###  Hardware
 
 1. Webcam
 
@@ -37,7 +37,7 @@ The main  objective of this repository is to provide a set of computer vision to
 For more details check this readme: https://github.com/aaceves/example_dynamixel
 
 ## 3. Installation
-#### Installation Guide
+###  Installation Guide
 
 Once the requirements have been met and the [catkin workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) have been set up, the next step is to clone and build this repository typing the following commands in a new terminal:
 ```bash
@@ -57,7 +57,7 @@ For the SURF node: In the downloaded repository, open `/vision_tools/src/SURF.cp
 
 For the detect node: open `/vision_tools/src/DetectBall.cpp` and change the ball.cascade path inside the main function, II section. In my case it looks like `if( !ball_cascade.load("/home/marco/catkin_ws/src/vision_tools/cascade/ballDetector.xml" ))`, you have to provide the complete path of the cascade detector trained file that is located in the cloned repository `/vision_tools/cascade/ballDetector.xml`. After these steps, build the packages again and you will be able to use the programs.
 
-#### Using the programs
+###  Using the programs
 
 In order to verify that the installation was successful, run the following command:
 ```
