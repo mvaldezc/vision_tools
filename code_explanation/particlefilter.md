@@ -152,8 +152,14 @@ If the callback function event is not working, execute the main algorithm. That 
 	ros::spinOnce();
 	return 0;
 }
+```
 
+<br/>
+The function to evaluate each particle is presented, first obtaining the HSV in each particle and evaluating the euclidian norm of the distance to the setpoint inside the gaussian density function. Then the obtained weights are normalized and the center of mass of the particles system is calculated, taking into account the weight of each sample.
+<br/>
+<br/>
 
+```C++
 void weight(void){
 	sum_w=0;
 	XsumW=0;
@@ -182,10 +188,15 @@ void weight(void){
 	pix=cv::Point(int(X),int(Y));
 	cv::circle(frame, pix, 8, cv::Scalar(255,0,255), -1);
 }
+```
 
+<br/>
+The resampling step consists of generating a random set of new particles and assigning the location of each one according to the weight of the previous set of samples.
+<br/>
+<br/>
 
+```C++
 void resampling(void){
-
 
 	z[0]=U(generator);
 	cumsum[0]=w[0];
@@ -224,8 +235,14 @@ void resampling(void){
 	pp.copyTo(particle);
 
 }
+```
 
+<br/>
+In order to propagate the particles, the product with the transition matrix is applied and then the sum of random noise is performed.
+<br/>
+<br/>
 
+```C++
 void propagate(void){
 	cv::Mat V=(cv::Mat_<double>(4,N));
 	for(int j=0;j<N;j++){
@@ -250,8 +267,14 @@ void propagate(void){
 		cv::circle(frame, cv::Point(int(x),int(y)), 2, cv::Scalar(0,255,0), -1);
 	}
 }
+```
 
+<br/>
+Finally, the color setup callback function is presented.
+<br/>
+<br/>
 
+```C++
 void callBackFunc(int event, int x, int y, int flags, void* userdata) {
 	if(rectP.contains(cv::Point(x,y))==1){
 		switch (event){
