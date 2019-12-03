@@ -26,8 +26,9 @@ Examples Color Detection:
 
 For offline mode: `rosrun vision_tools kalmanfilter 0`
 
-Now the code is explained:
+#### Code explanation
 
+The libraries and global variables declarations are presented first, this includes the matrices of the system model, the kalman filter, the cascade classifier and the miscellaneous variables needed to perform all the operations. This is the part of the code where the KF parameters can be changed.
 
 ```C++
 #include "ros/ros.h"
@@ -94,7 +95,12 @@ float cntbien=0;
 float cntmal=0;
 float por_bien=0;
 float por_mal=0;
+```
 
+
+In this secc
+
+```C++
 /********************************************************************************************/
 /************************************** FUNCION PRINCIPAL ***********************************/
 /********************************************************************************************/
