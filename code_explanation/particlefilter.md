@@ -7,7 +7,7 @@ The particle filter has a very straight forward usage. As said before, just the 
 rosrun vision_tools particlefilter
 ```
 
-One important thing to remark is that the color setpoint for this program can be stablished just drawing a rectangle in the image shown  in the dubugger mode:
+One important thing to remark is that the color setpoint for this program can be stablished just drawing a rectangle in the image shown  in the debugger mode:
 
 ![Color setup](https://github.com/marcovc41/vision_tools/blob/master/read_img/pf.PNG)
 
@@ -17,7 +17,7 @@ Then this will appear in the screen:
 
 #### Code explanation
 
-The libraries, the definitions and the global variables declarations are presented first,
+The libraries, the definitions and the global variables declarations are presented first, here the number of particles N can be changed, as well as the noise covariances. Also a couple of random number generators using different probability density functions are declared.
 
 ```C++
 #include "ros/ros.h"
@@ -67,7 +67,13 @@ void weight(void);
 void resampling(void);
 void propagate(void);
 void callBackFunc(int event, int x, int y, int flags, void* userdata);
+```
+<br/>
+Now, the main function was declared, initializing the ros node, the loop rate and declaring all the windows that will be used.
+<br/>
+<br/>
 
+```C++
 int main(int argc, char **argv){
 	ros::init(argc, argv, "particlefilter");
 	ros::NodeHandle n;
@@ -88,7 +94,14 @@ int main(int argc, char **argv){
 
 	cap >> frame;
 	if(frame.empty())  exit(1);
+```
 
+<br/>
+The next step is to spread the initial particles in a uniform distributed random way. After that, an initial iteration of the algorithm is run and the color detection callback is initialized.
+<br/>
+<br/>
+
+```C++
 	for(int j=0;j<N;j++){
 		particle.at<double>(0,j)=639*U(generator);
 		particle.at<double>(1,j)=479*U(generator);
@@ -103,7 +116,14 @@ int main(int argc, char **argv){
 	resampling();
 
 	cv::setMouseCallback("Original Video", callBackFunc);
+```
 
+<br/>
+If the callback function event is not working, execute the main algorithm. That means, change the color space to HSV, propagate, weight and resample the particles. Finally show the results and prepare for next iteration.
+<br/>
+<br/>
+
+```C++
 	while (ros::ok()) {
 		if(flag==0){
 			cap >> frame;
