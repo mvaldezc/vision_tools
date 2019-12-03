@@ -91,7 +91,7 @@ rosrun vision_tools track
 
 ## 4. Code explanation
 
-For a deeper understanding, the way of usage and algorithm are explained in the following files:
+For a deeper understanding, usage details and algorithm explanation, check the following files:
 
 * [Kalman Filter](code_explanation/kalmanfilter.md)
 * [Particle Filter](code_explanation/particlefilter.md)
@@ -179,11 +179,3 @@ In order to propagate the particles, a constant velocity system model with unifo
 https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html
 https://www.ros.org/
 http://wiki.ros.org/ROS
-
-
-Examples:
-For offline debugger mode:  rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'
-For realtime debugger mode: rosrun vision_tools detect 1
-
-Examples:
-For offline mode: rosrun vision_tools kalmanfilter 0

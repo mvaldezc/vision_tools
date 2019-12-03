@@ -1,13 +1,36 @@
 ## Kalman filter code explanation
 
-The way of
+As already mentioned, the way of executing the programs is:
+
+###### Kalman Filter + HAAR/LBP Cascade
+```
+rosrun vision_tools detect <debugger mode (0/1)> [path to video]
+```
+###### Kalman Filter + Color Detection
+```
+rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
+```
+
+Where the debugger mode activated (1) displays in the screen the captured images with all the geometrical drawings to indicate where the soccer ball is found. Deactivating the debugger mode (0) leads to a faster execution and performance. This debugger field is mandatory or otherwise the program will send an error.
+
+By the other hand, the path to a video file is an optional argument, if this is provided, then the algorithm will be tested using this video file. Multiple examples of testing are provided in the `/img` folder of the repository.
+
+Some examples of running the nodes are provided below:
+
+Examples Cascade Classifier:
+For offline debugger mode:  `rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'`
+For realtime debugger mode: `rosrun vision_tools detect 1`
+
+Examples Color Detection:
+For offline mode: `rosrun vision_tools kalmanfilter 0`
+
+Now the code is explained:
 
 
 ```C++
 #include "ros/ros.h"
 #include <opencv2/opencv.hpp>
 #include "geometry_msgs/Point.h"
-#include <thread>
 
 /********************************************************************************************/
 /************************************ VARIABLES GLOBALES ************************************/
