@@ -196,6 +196,7 @@ For the reason of avoiding complexity, the classifier training was done using Ma
 The steps are very straightforward, if you want to know more details, check Matlab wiki about [training classifiers](https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html) and [labeling images](https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html).
 
 ## References
+
 1. ROS Team, "ROS Documentation", [Online]. Available: http://wiki.ros.org/
 2. Alejandro Aceves, "Opencv tutorial", [Online]. Available: https://github.com/aaceves/opencv_tutorial
 3. Alejandro Aceves, Marco Valdez, Sarai Hernández, Bryan Urbina, "Dynamixel example", [Online]. Available: https://github.com/aaceves/example_dynamixel
