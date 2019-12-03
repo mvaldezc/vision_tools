@@ -132,16 +132,17 @@ Having this model defined, the KF equations were implemented:
 <img src="read_img/measurement.PNG" width="183" height="93"/>
 </p>
 
-Where the prediction step was made using the system model and the measurement update used the corresponding ball detector, that means the centroid of either the biggest color blob or the positive cascade detection.
+Where the prediction step was made using the system model and the measurement update used the corresponding ball detector, that means the centroid of either the biggest color blob or the positive cascade detection for each frame.
 
-The parameters that can be changed to adjust the filter behaviour are the measurement and system noise covariances, so that if the measurement covariance increases, we are trusting more in the system and the reciprocal happens for the system  noise :
-* Q = 
-* R = 
+The parameters that can be changed to adjust the filter behavior are the measurement and system noise covariances, so that if the measurement covariance increases, we are trusting less in the measurement and more in the system model, and the reciprocal happens when changing the system covariance. Another important value is the sampling time, which in many applications is set as 1, since it only affects the system model, however it can be changed to set how the velocity and acceleration is calculated and thus how sensitive the Kalman Filter will be. This is important for the prediction step and must be adjusted at the same time as the covariances, since the covariance matrix P depends on the system input matrix B and therefore depends on the sampling time.
 
+* Q =
+* R =
 
+Is good to remark that the covariances magnitudes affect directly the error covariance matrix P magnitude, which is used in our algorithm to delimit the region of interest where the object is sought. This is because the KF is designed to reduce this error covariance matrix with each iteration, however, when the object disappears, the error propagates since the uncertainty of the object position increases with time. Then, the submatrix of P that corresponds to the covariances of the position will give us a region where the object actually is. Because this submatrix has a geometric interpretation of a rotated ellipse which represents a confidence interval with certain precision, for example, if we desire a certainty of 99%, that means embracing 99 percent of the volume below the gaussian probability density function, the error ellipse will encompass a bigger area than having a certainty of 95%. The angle of rotation depends on the correlation of the x and y position, but for this case the covariances are null and only individual variances exist, leading to an horizontal (or vertical) ellipse, and since this variances are exactly equal for each dimension, the ellipse results in a circle. In order to ensure the compatibility with opencv functions, this ellipse was mapped into an auxiliar rectangle so that the error ellipse is inscribed in the rectangle
 
 #### Particle Filter
-
+The particle fi
 
 #### Cascade Object Detector
 
