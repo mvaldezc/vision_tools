@@ -132,6 +132,13 @@ Having this model defined, the KF equations were implemented:
 <img src="read_img/measurement.PNG" width="183" height="93"/>
 </p>
 
+Where the prediction step was made using the system model and the measurement update used the corresponding ball detector, that means the centroid of either the biggest color blob or the positive cascade detection.
+
+The parameters that can be changed to adjust the filter behaviour are measurement and system noise covariance where:
+* Q = 
+* R = 
+
+
 
 #### Particle Filter
 
