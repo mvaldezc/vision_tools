@@ -136,8 +136,9 @@ Where the prediction step uses the defined system model and the measurement upda
 
 The parameters that can be changed to adjust the filter behavior are the measurement and system noise covariances, so that if the measurement covariance increases, we are trusting less in the measurement and more in the system model, and the reciprocal happens when changing the system covariance. Another important value is the sampling time, which in many applications is set as 1, since it only affects the system model, however it can be changed to set how the velocity and acceleration is calculated and thus how sensitive the Kalman Filter will be. This is important for the prediction step and must be adjusted at the same time as the covariances, since the covariance matrix P depends on the system input matrix B and therefore depends on the sampling time.
 
-* Q =
-* R =
+* v = 30
+* w = 3000
+* t = 0.04
 
 <img src="read_img/ellipse.PNG" align="right" width="242" height="244"/>
 
@@ -145,9 +146,21 @@ Is good to remark that the covariances magnitudes affect directly the error cova
 
 ### Particle Filter
 
-The Particle Filter or Sequential Monte Carlo Method provides an approximate solution to the nonlinear filtering problem, in contrast with the Kalman Filter which works only with linear gaussian distributed noise. The main idea of this concept is the usage of samples or particles spread out in the state-space, each of them representing one hypothesis of the state x<sub>k</sub> of the system. Then a weight is assigned to each particle depending on how probable that state is. Thus, the most likely samples are kept, resampled according to the weight and then propagated further to x<sub>k+1</sub> using the system model. If you are not aware of the particle filter you can check [Andreas Svensson videos](https://youtu.be/aUkBa1zMKv4) and read his [introduction](https://www.it.uu.se/katalog/andsv164/Teaching/Material/PF_Intro_2014_AndreasSvensson.pdf) and for more advance understanding read [Schön and Lindsten introduction](http://www.it.uu.se/research/systems_and_control/education/2017/smc/SMC2017.pdf)
+The Particle Filter or Sequential Monte Carlo Method provides an approximate solution to the nonlinear filtering problem, in contrast with the Kalman Filter which works only with linear gaussian distributed noise. The main idea of this concept is the usage of N samples or particles spread out in the state-space, each of them representing one hypothesis of the state x<sub>k</sub> of the system. Then a weight w is assigned to each particle depending on how probable that state is. Thus, the most likely samples are kept, resampled according to the weight and then propagated further to x<sub>k+1</sub> using the system model. If you are not aware of the particle filter you can check [Andreas Svensson videos](https://youtu.be/aUkBa1zMKv4) and read his [introduction](https://www.it.uu.se/katalog/andsv164/Teaching/Material/PF_Intro_2014_AndreasSvensson.pdf) and for more advance understanding read [Schön and Lindsten introduction](http://www.it.uu.se/research/systems_and_control/education/2017/smc/SMC2017.pdf)
 
+The steps of the particle filter used for the programs are defined below:
 
+##### Weight function
+
+Since the weight corresponds to the probability of the state being correct, we obtain the Euclidian Norm from the measurement (in this case is a well defined combination of the HSV value for the color sought) to the evaluation of the color in one particle. Then using a gaussian probability density function as the weighting function, and evaluating it with this euclidian norm, the weight value w for each particle is found. Finally this is repeated for the N particles and then all the weights are normalized to 1.
+
+##### Resampling
+
+The resampling step is about generating new set of equally weight samples, considering the already weighted set. To do this, imagine a pie chart of area 1, with N slices representing the particles and each slice has a width that corresponds to the area w of the weight of each particle, summing 1 as said before. Then, N dots are placed with a uniform distribution random way along all the chart. As consequence, the slices that are bigger will contain more dots than the ones that are narrower. This is exactly what is implemented in the code. The particles with bigger weights are replicated many times but with a uniform probability, while the less likely ones have less or even none particles. Always keeping an N number of particles.
+
+##### Propagate
+
+In order to propagate the particles, 
 
 ### Cascade Object Detector
 
