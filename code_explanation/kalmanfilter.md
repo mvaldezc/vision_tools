@@ -18,10 +18,12 @@ By the other hand, the path to a video file is an optional argument, if this is 
 Some examples of running the nodes are provided below:
 
 Examples Cascade Classifier:
+
 For offline debugger mode:  `rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'`
 For realtime debugger mode: `rosrun vision_tools detect 1`
 
 Examples Color Detection:
+
 For offline mode: `rosrun vision_tools kalmanfilter 0`
 
 Now the code is explained:
