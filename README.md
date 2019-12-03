@@ -172,8 +172,9 @@ The steps of the particle filter used for the programs are defined below:
 
 Since the weight corresponds to the probability of the state being correct, we obtain the Euclidian Norm from the measurement (in this case is a well defined combination of the HSV value for the color sought) to the evaluation of the color in one particle. Then using a gaussian probability density function as the weighting function, and evaluating it with this euclidian norm, the weight value w for each particle is found. Finally this is repeated for the N particles and then all the weights are normalized to 1.
 
-<img src="read_img/weight.PNG" align="right" width="287" height="160"/>
-
+<p align="center">
+<img src="read_img/weight.PNG" width="287" height="160"/>
+</p>
 
 ##### Resampling
 
