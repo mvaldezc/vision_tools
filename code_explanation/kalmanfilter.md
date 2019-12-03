@@ -161,7 +161,7 @@ int main(int argc, char **argv){
 	}else{
 		std::cout << "\033[31mError:\033[0m Opción no válida" << std::endl;
 	}
-``
+```
 
 
 Next the debugger mode setup occurs,
