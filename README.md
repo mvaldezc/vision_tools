@@ -70,7 +70,7 @@ Then rosmaster will arise and a screen with the corresponding program will appea
 
 The way to run each of the ROS nodes is described below:
 
-##### Kalman Filter + HAAR / LBP Cascade
+#### Kalman Filter + HAAR / LBP Cascade
 ```
 rosrun vision_tools detect <debugger mode (0/1)> [path to video]
 ```
@@ -85,22 +85,28 @@ At the end, a report of results will appear:
 
 ![haar](read_img/haar2.png)
 
-##### Kalman Filter + Color Detection
+#### Kalman Filter + Color Detection
 ```
 rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
 ```
-##### Particle Filter + Color Detection
+#### Particle Filter + Color Detection
 ```
 rosrun vision_tools particlefilter
 ```
-##### SURF
+
+
+#### SURF
 ```
 rosrun vision_tools SURF
 ```
-##### Dynamixel motors
+
+![surf](read_img/surf.png)
+
+#### Dynamixel motors
 ```
 rosrun vision_tools track
 ```
+After running the program, no errors should appear.
 
 ## 4. Code explanation
 
