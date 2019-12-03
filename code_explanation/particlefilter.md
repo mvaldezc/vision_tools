@@ -9,8 +9,11 @@ rosrun vision_tools particlefilter
 
 One important thing to remark is that the color setpoint for this program can be stablished just drawing a rectangle in the image shown  in the dubugger mode:
 
-<img src="read_img/pf.PNG" align="center" width="160" height="139"/>
+![Color setup](https://github.com/marcovc41/vision_tools/blob/master/read_img/pf.PNG)
 
+Then this will appear in the screen:
+
+![Result](https://github.com/marcovc41/vision_tools/blob/master/read_img/ss.png)
 
 #### Code explanation
 
