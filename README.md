@@ -111,16 +111,16 @@ Due to the amount of packages available, Kinetic Kame [ROS distribution](http://
 
 The [Open Source Computer Vision Library](https://opencv.org/) is a set of software functions that provide a common infrastructure for computer vision and machine learning applications with over 2500 optimized algorithms. These algorithms can be used to detect faces, identify objects, track moving objects, image processing, etc [6]. OpenCV3 is the default version for ROS Kinetic and it is linked to ROS in such a way that it is already a system dependency [7]. In order to install this library, check this [repository](https://github.com/aaceves/opencv_tutorial) and [ROS documentation](https://wiki.ros.org/vision_opencv). I attached some links if you want to know more about the different [functions](https://docs.opencv.org/2.4/modules/refman.html) available and application [examples and tutorials](https://docs.opencv.org/3.3.1/d9/df8/tutorial_root.html). More tutorials (in spanish) can be found [here](http://acodigo.blogspot.com/p/tutorial-opencv.html).
 
-In order to improve the programs performance, [Open Computer Language (OpenCL)](https://opencv.org/opencl/) acceleration for OpenCV was used, providing some OpenCV algorithms access to the GPU, therefore GPU instead of CPU instructions will be executed automatically if a compatible device is available and makes sense from the performance point of view. OpenCL is compatible with AMD and Intel GPUs.
+In order to improve the programs performance, [Open Computer Language (OpenCL)](https://opencv.org/opencl/) acceleration for OpenCV was used, providing some OpenCV algorithms access to the GPU, therefore GPU instead of CPU instructions will be executed automatically if a compatible device is available and makes sense from the performance point of view [11]. OpenCL is compatible with AMD and Intel GPUs.
 
 ### Kalman Filter
 
 <img src="read_img/kf-matlab.png" align="right" width="236" height="134"/>
 
-In simple terms, the Kalman Filter is an observer that estimates the state of a system in the presence of noisy measurements [1]. In more precise terms it is a recursive filter, manifested as a set of mathematical equations that implement a predictor-corrector type estimator that is optimal in the sense that it minimizes the estimated error covariance. This algorithm is commonly used for tracking tasks, motion prediction and multi-sensor fusion. [2] If you are not acquainted with this filter, you can check this [Matlab video series](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) and read [Welch and Bishop introduction](http://www.cs.unc.edu/~tracker/media/pdf/SIGGRAPH2001_CoursePack_08.pdf#G6.39557.000). Also Matlab documentation includes a demonstration of the Kalman Filter for [object tracking with vision](https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html).
+In simple terms, the Kalman Filter is an observer that estimates the state of a system in the presence of noisy measurements [13]. In more precise terms it is a recursive filter, manifested as a set of mathematical equations that implement a predictor-corrector type estimator that is optimal in the sense that it minimizes the estimated error covariance. This algorithm is commonly used for tracking tasks, motion prediction and multi-sensor fusion. [14] If you are not acquainted with this filter, you can check this [Matlab video series](https://www.mathworks.com/videos/series/understanding-kalman-filters.html) and read [Welch and Bishop introduction](http://www.cs.unc.edu/~tracker/media/pdf/SIGGRAPH2001_CoursePack_08.pdf#G6.39557.000). Also Matlab documentation includes a demonstration of the Kalman Filter for [object tracking with vision](https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html).
 
 Because of these properties, the Kalman Filter algorithm was implemented in code in order to track the ball and estimate its position, velocity and acceleration. In this package, it was combined with two different detection methods: Color Detector and a Cascade Object Detector. The latest version of the program is the detect node (KF with cascade object detector), which implements some corrections on minor bugs and optimizes the code to increase the performance.
-In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian State Space Model of a particle with uniform acceleration was used, since it would detect the change of acceleration due to friction losses and have a better prediction:
+In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian State Space Model of a particle with uniform acceleration was used, since it would detect the change of acceleration due to friction losses and have a better prediction [15]:
 
 <p align="center">
 <img src="read_img/sys_eq.PNG" width="467" height="422"/>
@@ -150,11 +150,11 @@ The parameters that can be changed to adjust the filter behavior are the measure
 
 <img src="read_img/ellipse.PNG" align="right" width="242" height="244"/>
 
-Is good to remark that the covariances magnitudes affect directly the error covariance matrix P magnitude, which is used in our algorithm to delimit the region of interest where the object is sought. This is because the KF is designed to reduce this error covariance matrix with each iteration, however, when the object disappears, the error propagates since the uncertainty of the object position increases with time. Then, the submatrix of P that corresponds to the covariances of the position will give us a region where the object actually is. This submatrix has a geometric interpretation of a rotated ellipse which represents a confidence interval with certain precision, for example, if we desire a certainty of 99%, that means embracing 99 percent of the volume below the gaussian probability density function, the error ellipse will encompass a bigger area than having a certainty of 95%. The angle of rotation depends on the correlation of the x and y position, but for this case the covariances are null and only individual variances exist, leading to an horizontal (or vertical) ellipse, and since this variances are exactly equal for each dimension, the ellipse results in a circle. In order to perform a submatrix extraction of the ROI for each captured frame, this ellipse was mapped into an auxiliary rectangle so that the error ellipse is inscribed inside it. The figure in the right shows in green an example of an error ellipse (blue) and the auxiliary rectangle (green). The code to perform this mapping operation can be founded commented inside the getErrorEllipse function in the KalmanFilter.cpp code, for this particular situation, just obtaining the error circle radius r and obtaining a 2r side square is enough and saves a lot of computational time.
+Is good to remark that the covariances magnitudes affect directly the error covariance matrix P magnitude, which is used in our algorithm to delimit the region of interest where the object is sought. This is because the KF is designed to reduce this error covariance matrix with each iteration, however, when the object disappears, the error propagates since the uncertainty of the object position increases with time. Then, the submatrix of P that corresponds to the covariances of the position will give us a region where the object actually is. This submatrix has a geometric interpretation of a rotated ellipse which represents a confidence interval with certain precision [16], for example, if we desire a certainty of 99%, that means embracing 99 percent of the volume below the gaussian probability density function, the error ellipse will encompass a bigger area than having a certainty of 95%. The angle of rotation depends on the correlation of the x and y position, but for this case the covariances are null and only individual variances exist, leading to an horizontal (or vertical) ellipse, and since this variances are exactly equal for each dimension, the ellipse results in a circle. In order to perform a submatrix extraction of the ROI for each captured frame, this ellipse was mapped into an auxiliary rectangle so that the error ellipse is inscribed inside it. The figure in the right shows in green an example of an error ellipse (blue) and the auxiliary rectangle (green). The code to perform this mapping operation can be founded commented inside the getErrorEllipse function in the KalmanFilter.cpp code, for this particular situation, just obtaining the error circle radius r and obtaining a 2r side square is enough and saves a lot of computational time.
 
 ### Particle Filter
 
-The Particle Filter or Sequential Monte Carlo Method provides an approximate solution to the nonlinear filtering problem, in contrast with the Kalman Filter which works only with linear gaussian distributed noise. The main idea of this concept is the usage of N samples or particles spread out in the state-space, each of them representing one hypothesis of the state x<sub>k</sub> of the system. Then a weight w is assigned to each particle depending on how probable that state is. Thus, the most likely samples are kept, resampled according to the weight and then propagated further to x<sub>k+1</sub> using the system model. If you are not aware of the particle filter you can check [Andreas Svensson videos](https://youtu.be/aUkBa1zMKv4) and read his [introduction](https://www.it.uu.se/katalog/andsv164/Teaching/Material/PF_Intro_2014_AndreasSvensson.pdf) and for more advance understanding read [Schön and Lindsten introduction](http://www.it.uu.se/research/systems_and_control/education/2017/smc/SMC2017.pdf)
+The Particle Filter or Sequential Monte Carlo Method provides an approximate solution to the nonlinear filtering problem, in contrast with the Kalman Filter which works only with linear gaussian distributed noise. The main idea of this concept is the usage of N samples or particles spread out in the state-space, each of them representing one hypothesis of the state x<sub>k</sub> of the system. Then a weight w is assigned to each particle depending on how probable that state is [17]. Thus, the most likely samples are kept, resampled according to the weight and then propagated further to x<sub>k+1</sub> using the system model [18]. If you are not aware of the particle filter you can check [Andreas Svensson videos](https://youtu.be/aUkBa1zMKv4) and read his [introduction](https://www.it.uu.se/katalog/andsv164/Teaching/Material/PF_Intro_2014_AndreasSvensson.pdf) and for more advance understanding read [Schön and Lindsten introduction](http://www.it.uu.se/research/systems_and_control/education/2017/smc/SMC2017.pdf)
 
 The steps of the particle filter used for the programs are defined below:
 
@@ -183,21 +183,29 @@ For mores information about some of these features, check this [opencv tutorial]
 #### Training
 
 For the reason of avoiding complexity, the classifier training was done using Matlab and the Computer Vision Toolbox.
-The steps for training your own cascade are described below, however if you want to know more details, check Matlab wiki about [training classifiers](https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html) and [labeling images](https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html).
+The steps are very straightforward, if you want to know more details, check Matlab wiki about [training classifiers](https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html) and [labeling images](https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html).
 
 ## References
-1. ROS Team, "ROS Documentation", [Online] Available: http://wiki.ros.org/
-2. Alejandro Aceves, "Opencv tutorial", [Online] Available: https://github.com/aaceves/opencv_tutorial
-3. Alejandro Aceves, Marco Valdez, Sarai Hernández, Bryan Urbina, "Dynamixel example", [Online] Available: https://github.com/aaceves/example_dynamixel
-4. MathWorks, "Computer Vision Toolbox", [Online] Available: https://www.mathworks.com/products/computer-vision.html
-5. ROS Team, "Robotic Operating System", [Online] Available: https://www.ros.org/
-6. OpenCV Team, "Open Source Computer Vision Library", [Online] Available: https://opencv.org/
-7. ROS Team, "Vision OpenCV package", [Online] Available: https://wiki.ros.org/vision_opencv
-8. OpenCV Team, "OpenCV API Reference", [Online] Available: https://docs.opencv.org/2.4/modules/refman.html
-9. OpenCV Team, "OpenCV Tutorials", [Online] Available: https://docs.opencv.org/3.3.1/d9/df8/tutorial_root.html
-10. Anonymous, "OpenCV", [Online] Available: http://acodigo.blogspot.com/p/tutorial-opencv.html
-11. OpenCV Team, "OpenCL", [Online] Available: https://opencv.org/opencl/
-12.
+1. ROS Team, "ROS Documentation", [Online]. Available: http://wiki.ros.org/
+2. Alejandro Aceves, "Opencv tutorial", [Online]. Available: https://github.com/aaceves/opencv_tutorial
+3. Alejandro Aceves, Marco Valdez, Sarai Hernández, Bryan Urbina, "Dynamixel example", [Online]. Available: https://github.com/aaceves/example_dynamixel
+4. MathWorks, "Computer Vision Toolbox", [Online]. Available: https://www.mathworks.com/products/computer-vision.html
+5. ROS Team, "Robotic Operating System", [Online]. Available: https://www.ros.org/
+6. OpenCV Team, "Open Source Computer Vision Library", [Online]. Available: https://opencv.org/
+7. ROS Team, "Vision OpenCV package", [Online]. Available: https://wiki.ros.org/vision_opencv
+8. OpenCV Team, "OpenCV API Reference", [Online]. Available: https://docs.opencv.org/2.4/modules/refman.html
+9. OpenCV Team, "OpenCV Tutorials", [Online]. Available: https://docs.opencv.org/3.3.1/d9/df8/tutorial_root.html
+10. Anonymous, "OpenCV", [Online]. Available: http://acodigo.blogspot.com/p/tutorial-opencv.html
+11. OpenCV Team, "OpenCL", [Online]. Available: https://opencv.org/opencl/
+12. MathWorks, "Understanding Kalman Filters", [Online]. Available: https://www.mathworks.com/videos/series/understanding-kalman-filters.html
+13. Aström, Murray, "Feedback Systems", California Institute of Technology. Princeton University Press.
+14. Greg Welch, Gary Bishop, “An introduction to the Kalman filter”, University of North Carolina at Chapel Hill. Available: http://www.cs.unc.edu/~tracker/media/pdf/SIGGRAPH2001_CoursePack_08.pdf
+15. MathWorks, "Using Kalman Filter for Object Tracking", [Online]. Available: https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html
+16. Vincent Spruyt, "How to draw a covariance error ellipse?", [Online]. Available: https://www.visiondummy.com/2014/04/draw-error-ellipse-representing-covariance-matrix/
+17. Thomas Schön and Fredrik Lindsten, "Learning of dynamical systems: Particle filters and Markov chain methods". 
+18. Andreas Svensson, "An introduction to particle filters", [Online]. Available: https://www.it.uu.se/katalog/andsv164/Teaching/Material/PF_Intro_2014_AndreasSvensson.pdf
+19. Andreas Svensson, "Particle Filter Explained without Equations", [Online]. Available: https://youtu.be/aUkBa1zMKv4
+20. OpenCV Team, "Cascade Classifier", [Online]. Available: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
+21. MathWorks, "Train a Cascade Object Detector", [Online]. Available: https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html
+22. MathWorks, "Get Started with the Image Labeler", [Online]. Available: https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html
 
-
-https://www.visiondummy.com/2014/04/draw-error-ellipse-representing-covariance-matrix/
