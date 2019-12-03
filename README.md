@@ -93,7 +93,8 @@ rosrun vision_tools track
 
 For a deeper understanding, the way of usage and algorithm are explained in the following files:
 
-
+* [Kalman Filter](code_explanation/kalmanfilter.md)
+* [Particle Filter](code_explanation/particlefilter.md)
 
 ## 5. Theory
 ### ROS
