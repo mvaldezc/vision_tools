@@ -134,7 +134,7 @@ Having this model defined, the KF equations were implemented:
 
 Where the prediction step was made using the system model and the measurement update used the corresponding ball detector, that means the centroid of either the biggest color blob or the positive cascade detection.
 
-The parameters that can be changed to adjust the filter behaviour are measurement and system noise covariance where:
+The parameters that can be changed to adjust the filter behaviour are the measurement and system noise covariances, so that if the measurement covariance increases, we are trusting more in the system and the reciprocal happens for the system  noise :
 * Q = 
 * R = 
 
