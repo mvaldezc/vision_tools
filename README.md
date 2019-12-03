@@ -128,6 +128,8 @@ In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian St
 <p align="center">
 <img src="read_img/sys_eq.PNG" width="180" height="56"/>
 <br/>
+<br/>
+<br/>
 <img src="read_img/sys.PNG" width="458" height="172"/>
 <br/>
 <img src="read_img/meas.PNG" width="254" height="170"/>
