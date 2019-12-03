@@ -60,13 +60,13 @@ After these steps, build the packages again and you will be able to use the prog
 
 ### Using the programs
 
-In order to verify that the installation was successful, run the following command:
+In order to verify that the installation was successful and run each of the nodes included in this package, run the following commands:
 ```
 roscore
 cntrl+shift+T
-rosrun vision_tools particlefilter
+rosrun vision_tools <any of the nodes>
 ```
-Then rosmaster will arise and a screen with your webcam image and the particle filter must appear. If these happens, congratulations!, you are now ready to prove each of the algorithms included in this package.
+Then rosmaster will arise and a screen with the corresponding program will appear. If these happens, congratulations! you successfully installed this package.
 
 The way to run each of the ROS nodes is described below:
 
@@ -74,6 +74,17 @@ The way to run each of the ROS nodes is described below:
 ```
 rosrun vision_tools detect <debugger mode (0/1)> [path to video]
 ```
+
+After running this node with this command (with the directory of your corresponding machine):
+`rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'`
+the following screen should appear:
+
+![haar](read_img/haar1.png)
+
+At the end, a report of results will appear:
+
+![haar](read_img/haar2.png)
+
 ##### Kalman Filter + Color Detection
 ```
 rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
