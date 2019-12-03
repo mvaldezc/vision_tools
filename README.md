@@ -172,6 +172,19 @@ In order to propagate the particles, a constant velocity system model with unifo
 
 ### Cascade Object Detector
 
+The cascade object detector is a trained classifier that looks for specific characteristics in an image. This characteristics are set by training the cascade with a set of images of the object that will be seek.
+There are many different characteristics that define an object, some of the most used for classifiers are:
+* Haar features
+* Local Binary Patterns (LBP)
+* Histograms of Oriented Gradients (HOG)
+
+For mores information about some of these features, check this [opencv tutorial](https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html).
+
+### Training
+
+For the reason of avoiding complexity, the classifier training was done using Matlab and the Computer Vision Toolbox.
+The steps for training your own cascade are described below, however if you want to know more details, check Matlab wiki about [training classifiers](https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html) and [labeling images](https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html).
+
 
 
 
@@ -179,3 +192,5 @@ In order to propagate the particles, a constant velocity system model with unifo
 https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html
 https://www.ros.org/
 http://wiki.ros.org/ROS
+
+https://www.visiondummy.com/2014/04/draw-error-ellipse-representing-covariance-matrix/
