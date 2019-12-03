@@ -97,9 +97,9 @@ float por_bien=0;
 float por_mal=0;
 ```
 
-
+<br/>
 In the next section, the main function appears, with the ros node initialization, the program execution rate and the videocapture settings, depending on whether the user provided a video file or not. Finally, the debugger setup occurs.
-
+<br/>
 
 ```C++
 /********************************************************************************************/
@@ -162,10 +162,11 @@ int main(int argc, char **argv){
 		std::cout << "\033[31mError:\033[0m Opción no válida" << std::endl;
 	}
 ```
+
 <br/>
 Next the initial calculations are performed, in order to start at the middle of the screen, charging the cascade classifier, creating the windows for debugger mode and taking the initial time in order to perform fps measurement.
 <br/>
-<br/>
+
 ```C++
 
 	/*************************** II. INICIALIZACIÓN DE VARIABLES ***************************/
