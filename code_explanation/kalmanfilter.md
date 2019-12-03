@@ -97,8 +97,7 @@ float por_bien=0;
 float por_mal=0;
 ```
 
-
-In this secc
+In the next section, the main function appears, with the ros node initialization, the program execution rate and the videocapture settings, depending on whether the user provided a video file or not.
 
 ```C++
 /********************************************************************************************/
@@ -149,7 +148,11 @@ int main(int argc, char **argv){
 			std::cout << "\033[31mError:\033[0m número erroneo de argumentos" << std::endl;
 			exit(1);
 	}
+```
 
+Next
+
+```C++
 	// Selección debugger activado/desactivado
 
 	if(int(*argv[1])-48 == 1){		// Un 1 activa el debugger
