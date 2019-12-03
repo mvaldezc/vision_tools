@@ -101,15 +101,15 @@ For a deeper understanding, usage details and algorithm explanation, check the f
 
 <img src="read_img/kinetic.png" align="right" width="157" height="130"/>
 
-The [Robot Operating System (ROS)](https://www.ros.org/) is a flexible modular framework for writing robot software. It is a set of open source software libraries and tools that aim to simplify developing robot applications. This ecosystem provides services such as hardware abstraction, low-level device control, package management, communications infrastructure, diagnostics, pose estimation, localization, mapping, navigation, GUI, simulation, computer vision, etc. If you want to know more about using ROS, please check [ROS1 wiki](http://wiki.ros.org/ROS), I highly recommend completing the tutorials.
+The [Robot Operating System (ROS)](https://www.ros.org/) is a flexible modular framework for writing robot software. It is a set of open source software libraries and tools that aim to simplify developing robot applications [5]. This ecosystem provides services such as hardware abstraction, low-level device control, package management, communications infrastructure, diagnostics, pose estimation, localization, mapping, navigation, GUI, simulation, computer vision, etc [1]. If you want to know more about using ROS, please check [ROS1 wiki](http://wiki.ros.org/ROS), I highly recommend completing the tutorials.
 
-Due to the amount of packages available, Kinetic Kame [ROS distribution](http://wiki.ros.org/Distributions) is used for this package. However, it is getting older and it will reach its end of life starting 2021, therefore a migration from Kinetic Kame to Melodic Morenia must be sought soon.
+Due to the amount of packages available, Kinetic Kame [ROS distribution](http://wiki.ros.org/Distributions) is used for this package. However, it is getting older and it will reach its end of life starting 2021 15], therefore a migration from Kinetic Kame to Melodic Morenia must be sought soon.
 
 ### OpenCV
 
 <img src="read_img/opencv.png" align="right" width="100" height="123"/>
 
-The [Open Source Computer Vision Library](https://opencv.org/) is a set of software functions that provide a common infrastructure for computer vision and machine learning applications with over 2500 optimized algorithms. These algorithms can be used to detect faces, identify objects, track moving objects, image processing, etc. OpenCV3 is the default version for ROS Kinetic and it is linked to ROS in such a way that it is already a system dependency. In order to install this library, check this [repository](https://github.com/aaceves/opencv_tutorial) and [ROS documentation](https://wiki.ros.org/vision_opencv). I attached some links if you want to know more about the different [functions](https://docs.opencv.org/2.4/modules/refman.html) available and application [examples and tutorials](https://docs.opencv.org/3.3.1/d9/df8/tutorial_root.html). More tutorials (in spanish) can be found [here](http://acodigo.blogspot.com/p/tutorial-opencv.html).
+The [Open Source Computer Vision Library](https://opencv.org/) is a set of software functions that provide a common infrastructure for computer vision and machine learning applications with over 2500 optimized algorithms. These algorithms can be used to detect faces, identify objects, track moving objects, image processing, etc [6]. OpenCV3 is the default version for ROS Kinetic and it is linked to ROS in such a way that it is already a system dependency [7]. In order to install this library, check this [repository](https://github.com/aaceves/opencv_tutorial) and [ROS documentation](https://wiki.ros.org/vision_opencv). I attached some links if you want to know more about the different [functions](https://docs.opencv.org/2.4/modules/refman.html) available and application [examples and tutorials](https://docs.opencv.org/3.3.1/d9/df8/tutorial_root.html). More tutorials (in spanish) can be found [here](http://acodigo.blogspot.com/p/tutorial-opencv.html).
 
 In order to improve the programs performance, [Open Computer Language (OpenCL)](https://opencv.org/opencl/) acceleration for OpenCV was used, providing some OpenCV algorithms access to the GPU, therefore GPU instead of CPU instructions will be executed automatically if a compatible device is available and makes sense from the performance point of view. OpenCL is compatible with AMD and Intel GPUs.
 
@@ -185,12 +185,19 @@ For mores information about some of these features, check this [opencv tutorial]
 For the reason of avoiding complexity, the classifier training was done using Matlab and the Computer Vision Toolbox.
 The steps for training your own cascade are described below, however if you want to know more details, check Matlab wiki about [training classifiers](https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html) and [labeling images](https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html).
 
+## References
+1. ROS Team, "ROS Documentation", [Online] Available: http://wiki.ros.org/
+2. Alejandro Aceves, "Opencv tutorial", [Online] Available: https://github.com/aaceves/opencv_tutorial
+3. Alejandro Aceves, Marco Valdez, Sarai Hernández, Bryan Urbina, "Dynamixel example", [Online] Available: https://github.com/aaceves/example_dynamixel
+4. MathWorks, "Computer Vision Toolbox", [Online] Available: https://www.mathworks.com/products/computer-vision.html
+5. ROS Team, "Robotic Operating System", [Online] Available: https://www.ros.org/
+6. OpenCV Team, "Open Source Computer Vision Library", [Online] Available: https://opencv.org/
+7. ROS Team, "Vision OpenCV package", [Online] Available: https://wiki.ros.org/vision_opencv
+8. OpenCV Team, "OpenCV API Reference", [Online] Available: https://docs.opencv.org/2.4/modules/refman.html
+9. OpenCV Team, "OpenCV Tutorials", [Online] Available: https://docs.opencv.org/3.3.1/d9/df8/tutorial_root.html
+10. Anonymous, "OpenCV", [Online] Available: http://acodigo.blogspot.com/p/tutorial-opencv.html
+11. OpenCV Team, "OpenCL", [Online] Available: https://opencv.org/opencl/
+12.
 
-
-
-(https://www.mathworks.com/videos/series/understanding-kalman-filters.html)
-https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html
-https://www.ros.org/
-http://wiki.ros.org/ROS
 
 https://www.visiondummy.com/2014/04/draw-error-ellipse-representing-covariance-matrix/
