@@ -118,14 +118,15 @@ In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian St
 <img src="read_img/sys_eq.PNG" width="467" height="422"/>
 </p>
 
-Having this model defined, the 5 KF equations were implemented:
-Prediction step
+Having this model defined, the KF equations were implemented:
+
+##### Prediction step
 
 <p align="center">
 <img src="read_img/prediction.PNG" width="188" height="59"/>
 </p>
 
-Measurement update
+##### Measurement update
 
 <p align="center">
 <img src="read_img/measurement.PNG" width="183" height="93"/>
