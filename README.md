@@ -5,7 +5,7 @@
 The main  objective of this repository is to provide a set of computer vision tools to detect and track objects and to educate beginners about the emerging technologies that are used in robotic applications.  These systems where developed using the Robotic Operating System and the Open Source Computer Vision library for C++11. It is important to remark that this package was particularly designed to identify a soccer ball inside a soccer field. The tools implemented in the repository are:
 </p>
 
-* Kalman Filter + HAAR/LBP Cascade
+* Kalman Filter + HAAR / LBP Cascade
 * Particle Filter + Color Detection
 * Kalman Filter + Color Detection
 * SURF
@@ -55,7 +55,9 @@ Before running the nodes, some modifications to the code are needed due to the c
 
 For the SURF node: In the downloaded repository, open `/vision_tools/src/SURF.cpp` with your favorite text editor. Look for the `path_image` variable assignment inside the main function, change it according to your corresponding path, in my case it is `path_image= "/home/marco/catkin_ws/src/vision_tools/img/cuad2.png";`. The path that you have to write is the path of the sample image that you will search using the SURF algorithm.
 
-For the detect node: open `/vision_tools/src/DetectBall.cpp` and change the ball.cascade path inside the main function, II section. In my case it looks like `if( !ball_cascade.load("/home/marco/catkin_ws/src/vision_tools/cascade/ballDetector.xml" ))`, you have to provide the complete path of the cascade detector trained file that is located in the cloned repository `/vision_tools/cascade/ballDetector.xml`. After these steps, build the packages again and you will be able to use the programs.
+For the detect node: open `/vision_tools/src/DetectBall.cpp` and change the ball.cascade path inside the main function, II section. In my case it looks like `if( !ball_cascade.load("/home/marco/catkin_ws/src/vision_tools/cascade/ballDetector.xml" ))`, you have to provide the complete path of the cascade detector trained file that is located in the cloned repository `/vision_tools/cascade/ballDetector.xml`.
+
+After these steps, build the packages again and you will be able to use the programs.
 
 ### Using the programs
 
@@ -65,26 +67,27 @@ roscore
 cntrl+shift+T
 rosrun vision_tools particlefilter
 ```
-Then rosmaster will arise and a screen with your webcam image and the particle filter must appear. If these happens, congratulations, you are now ready to prove each of the algorithms included in this package.
+Then rosmaster will arise and a screen with your webcam image and the particle filter must appear. If these happens, congratulations!, you are now ready to prove each of the algorithms included in this package.
+
 The way to run each of the ROS nodes is described below:
 
-###### Kalman Filter + HAAR/LBP Cascade
+##### Kalman Filter + HAAR / LBP Cascade
 ```
 rosrun vision_tools detect <debugger mode (0/1)> [path to video]
 ```
-###### Kalman Filter + Color Detection
+##### Kalman Filter + Color Detection
 ```
 rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
 ```
-###### Particle Filter + Color Detection
+##### Particle Filter + Color Detection
 ```
 rosrun vision_tools particlefilter
 ```
-###### SURF
+##### SURF
 ```
 rosrun vision_tools SURF
 ```
-###### Dynamixel motors
+##### Dynamixel motors
 ```
 rosrun vision_tools track
 ```
@@ -93,8 +96,8 @@ rosrun vision_tools track
 
 For a deeper understanding, usage details and algorithm explanation, check the following files:
 
-* [Kalman Filter](code_explanation/kalmanfilter.md)
-* [Particle Filter](code_explanation/particlefilter.md)
+* [Kalman Filter + HAAR](code_explanation/kalmanfilter.md)
+* [Particle Filter + Color Detection](code_explanation/particlefilter.md)
 
 ## 5. Theory
 ### ROS
