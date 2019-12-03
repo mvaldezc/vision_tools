@@ -12,7 +12,6 @@ The main  objective of this repository is to provide a set of computer vision to
 * Camera Angular Position Control (Dynamixel Servomotors)
 
 
-
 ## 2. Requirements
 ### Software
 
@@ -184,7 +183,9 @@ The resampling step is about generating new set of equally weight samples, consi
 
 In order to propagate the particles, a constant velocity system model with uniform distributed random noise was proposed, because the N particles have to be spread using this model, so in order to reduce the computational resources used, a simple model was chosen.
 
-
+<p align="center">
+<img src="read_img/p_sys.PNG" width="265" height="122"/>
+</p>
 
 ### Cascade Object Detector
 
