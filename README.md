@@ -180,7 +180,7 @@ There are many different characteristics that define an object, some of the most
 
 For mores information about some of these features, check this [opencv tutorial](https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html).
 
-### Training
+#### Training
 
 For the reason of avoiding complexity, the classifier training was done using Matlab and the Computer Vision Toolbox.
 The steps for training your own cascade are described below, however if you want to know more details, check Matlab wiki about [training classifiers](https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html) and [labeling images](https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html).
