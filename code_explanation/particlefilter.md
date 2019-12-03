@@ -1,7 +1,19 @@
 ## Particle filter code explanation
 
-The particle filter
+The particle filter has a very straight forward usage. As said before, just the following commands are needed:
 
+###### Particle Filter + Color Detection
+```
+rosrun vision_tools particlefilter
+```
+
+One important thing to remark is that the color setpoint for this program can be stablished just drawing a rectangle in the image shown  in the dubugger mode:
+
+
+
+#### Code explanation
+
+The libraries, the definitions and the global variables declarations are presented first,
 
 ```C++
 #include "ros/ros.h"
