@@ -162,11 +162,10 @@ int main(int argc, char **argv){
 		std::cout << "\033[31mError:\033[0m Opción no válida" << std::endl;
 	}
 ```
-
 <br/>
-Next the debugger mode setup occurs,
+Next the initial calculations are performed, in order to start at the middle of the screen, charging the cascade classifier, creating the windows for debugger mode and taking the initial time in order to perform fps measurement.
 <br/>
-
+<br/>
 ```C++
 
 	/*************************** II. INICIALIZACIÓN DE VARIABLES ***************************/
