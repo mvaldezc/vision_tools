@@ -212,7 +212,14 @@ Next the initial calculations are performed, in order to start at the middle of 
      std::cout << "\033[36mAceleración GPU:	\033[33m";
 
      t0 = ros::Time::now().toSec();
+```
 
+<br/>
+Now, the main algorithm is presented, first a submatrix of the captured frame is extracted, converted to gray scale and the cascade detector is called, once the measurement is accomplished, the kalman filter is called, then the geometric figures are drawn and ball position is published.
+<br/>
+<br/>
+
+```C++
 	while(ros::ok()){
 		/*************************** III. ACONDICIONAMIENTO DE IMAGEN ***************************/
 		cap >> frame;
@@ -260,8 +267,12 @@ Next the initial calculations are performed, in order to start at the middle of 
 		kalman_pub.publish(ball_position);
 
 		ros::spinOnce();
+```
+
+<br/>
 
 
+```C++
 		/********************************VISUALIZACION DE IMAGEN********************************/
 
 		if(dm){	//Mostrar imagen en modo debugger
