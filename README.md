@@ -14,7 +14,7 @@ The main  objective of this repository is to provide a set of computer vision to
 
 
 ## 2. Requirements
-###  Software
+### Software
 
 1. [ROS1 Kinetic Kame](http://wiki.ros.org/kinetic/Installation)
 2. [OpenCV3 for ROS](https://github.com/aaceves/opencv_tutorial)
@@ -24,7 +24,7 @@ The main  objective of this repository is to provide a set of computer vision to
 
 4. [Computer Vision toolbox for MATLAB](https://www.mathworks.com/products/computer-vision.html)
 
-###  Hardware
+### Hardware
 
 1. Webcam
 
@@ -37,7 +37,7 @@ The main  objective of this repository is to provide a set of computer vision to
 For more details check this readme: https://github.com/aaceves/example_dynamixel
 
 ## 3. Installation
-###  Installation Guide
+### Installation Guide
 
 Once the requirements have been met and the [catkin workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) have been set up, the next step is to clone and build this repository typing the following commands in a new terminal:
 ```bash
@@ -57,7 +57,7 @@ For the SURF node: In the downloaded repository, open `/vision_tools/src/SURF.cp
 
 For the detect node: open `/vision_tools/src/DetectBall.cpp` and change the ball.cascade path inside the main function, II section. In my case it looks like `if( !ball_cascade.load("/home/marco/catkin_ws/src/vision_tools/cascade/ballDetector.xml" ))`, you have to provide the complete path of the cascade detector trained file that is located in the cloned repository `/vision_tools/cascade/ballDetector.xml`. After these steps, build the packages again and you will be able to use the programs.
 
-###  Using the programs
+### Using the programs
 
 In order to verify that the installation was successful, run the following command:
 ```
@@ -89,7 +89,7 @@ rosrun vision_tools SURF
 rosrun vision_tools track
 ```
 ## 4. Explanation
-#### ROS
+### ROS
 
 <img src="read_img/kinetic.png" align="right" width="157" height="130"/>
 
@@ -97,7 +97,7 @@ The [Robot Operating System (ROS)](https://www.ros.org/) is a flexible modular f
 
 Due to the amount of packages available, Kinetic Kame [ROS distribution](http://wiki.ros.org/Distributions) is used for this package. However, it is getting older and it will reach its end of life starting 2021, therefore a migration from Kinetic Kame to Melodic Morenia must be sought soon.
 
-#### OpenCV
+### OpenCV
 
 <img src="read_img/opencv.png" align="right" width="100" height="123"/>
 
@@ -105,7 +105,7 @@ The [Open Source Computer Vision Library](https://opencv.org/) is a set of softw
 
 In order to improve the programs performance, [Open Computer Language (OpenCL)](https://opencv.org/opencl/) acceleration for OpenCV was used, providing some OpenCV algorithms access to the GPU, therefore GPU instead of CPU instructions will be executed automatically if a compatible device is available and makes sense from the performance point of view. OpenCL is compatible with AMD and Intel GPUs.
 
-#### Kalman Filter
+### Kalman Filter
 
 <img src="read_img/kf-matlab.png" align="right" width="236" height="134"/>
 
@@ -143,11 +143,11 @@ The parameters that can be changed to adjust the filter behavior are the measure
 
 Is good to remark that the covariances magnitudes affect directly the error covariance matrix P magnitude, which is used in our algorithm to delimit the region of interest where the object is sought. This is because the KF is designed to reduce this error covariance matrix with each iteration, however, when the object disappears, the error propagates since the uncertainty of the object position increases with time. Then, the submatrix of P that corresponds to the covariances of the position will give us a region where the object actually is. This submatrix has a geometric interpretation of a rotated ellipse which represents a confidence interval with certain precision, for example, if we desire a certainty of 99%, that means embracing 99 percent of the volume below the gaussian probability density function, the error ellipse will encompass a bigger area than having a certainty of 95%. The angle of rotation depends on the correlation of the x and y position, but for this case the covariances are null and only individual variances exist, leading to an horizontal (or vertical) ellipse, and since this variances are exactly equal for each dimension, the ellipse results in a circle. In order to perform a submatrix extraction of the ROI for each captured frame, this ellipse was mapped into an auxiliary rectangle so that the error ellipse is inscribed inside it. The figure in the right shows in green an example of an error ellipse (blue) and the auxiliary rectangle (green). The code to perform this mapping operation can be founded commented inside the getErrorEllipse function in the KalmanFilter.cpp code, for this particular situation, just obtaining the error circle radius r and obtaining a 2r side square is enough and saves a lot of computational time.
 
-#### Particle Filter
+### Particle Filter
 
 The Particle Filter or Sequential Monte Carlo Method provides an approximate solution to the nonlinear filtering problem, in contrast with the Kalman Filter which works only with linear gaussian distributed noise. The main idea of this concept is the usage of samples or particles spread out in the state-space, each of them representing one hypothesis of the state x<sub>k</sub> of the system. Then a weight is assigned to each particle depending on how probable that state is. Thus, the most likely samples are kept, resampled according to the weight and then propagated further to x<sub>k+1</sub>
 
-#### Cascade Object Detector
+### Cascade Object Detector
 
 
 
