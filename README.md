@@ -172,6 +172,9 @@ The steps of the particle filter used for the programs are defined below:
 
 Since the weight corresponds to the probability of the state being correct, we obtain the Euclidian Norm from the measurement (in this case is a well defined combination of the HSV value for the color sought) to the evaluation of the color in one particle. Then using a gaussian probability density function as the weighting function, and evaluating it with this euclidian norm, the weight value w for each particle is found. Finally this is repeated for the N particles and then all the weights are normalized to 1.
 
+<img src="read_img/weight.PNG" align="right" width="287" height="160"/>
+
+
 ##### Resampling
 
 The resampling step is about generating new set of equally weight samples, considering the already weighted set. To do this, imagine a pie chart of area 1, with N slices representing the particles and each slice has a width that corresponds to the area w of the weight of each particle, summing 1 as said before. Then, N dots are placed with a uniform distribution random way along all the chart. As consequence, the slices that are bigger will contain more dots than the ones that are narrower. This is exactly what is implemented in the code. The particles with bigger weights are replicated many times but with a uniform probability, while the less likely ones have less or even none particles. Always keeping an N number of particles.
@@ -179,6 +182,8 @@ The resampling step is about generating new set of equally weight samples, consi
 ##### Propagate
 
 In order to propagate the particles, a constant velocity system model with uniform distributed random noise was proposed, because the N particles have to be spread using this model, so in order to reduce the computational resources used, a simple model was chosen.
+
+
 
 ### Cascade Object Detector
 
