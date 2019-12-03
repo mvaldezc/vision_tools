@@ -417,7 +417,7 @@ Finally, this miscellaneous function is presented, this has the aim of drawing a
 <br/>
 <br/>
 
-```
+```C++
 void dibujar_barra(double FPS){
 	if(FPS>30)       std::cout << "  [\033[1;31m|||\033[33m||||\033[32m||||||||" << std::flush;
 	else if(FPS>=28) std::cout << "  [\033[1;31m|||\033[33m||||\033[32m||||||| " << std::flush;
