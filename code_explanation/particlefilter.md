@@ -10,11 +10,7 @@ The particle filter
 
 #define screen_height 	480
 #define screen_width	640
-/*#define r			10
-#define kh		screen_height/r*2
-#define kw		screen_width/r*2
-#define N			(kw-1)*(kh-1)
-*/
+
 #define N 		5000
 #define T			0.2
 #define desvV		30
@@ -132,14 +128,6 @@ void weight(void){
 		if(H>HSV[0])	eH[k]=H-HSV[0];
 		else 		eH[k]=HSV[0]-H;
 		if(eH[k]>128)	eH[k]=256-eH[k];
-
-		/*if(HSV[1]>S+10)	eS[k]=HSV[1]-(S+10);
-		else if(HSV[1]<S-10)	eS[k]=(S-10)-HSV[1];
-		else	eS[k]=0;
-
-		if(HSV[2]>V+10)	eV[k]=HSV[2]-(V+10);
-		else if(HSV[2]<V-10)	eV[k]=(V-10)-HSV[2];
-		else	eV[k]=0;*/
 
 		eS[k]=HSV[1]-S;
 		eV[k]=HSV[2]-V;
