@@ -238,7 +238,7 @@ void resampling(void){
 ```
 
 <br/>
-In order to propagate the particles, the product with the transition matrix is applied and then the sum of random noise is performed.
+In order to propagate the particles, the product with the state transition matrix is applied and then the sum of random noise is performed.
 <br/>
 <br/>
 
