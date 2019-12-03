@@ -163,9 +163,9 @@ int main(int argc, char **argv){
 	}
 ```
 
-
+<br/>
 Next the debugger mode setup occurs,
-
+<br/>
 
 ```C++
 
