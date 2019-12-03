@@ -88,7 +88,14 @@ rosrun vision_tools SURF
 ```
 rosrun vision_tools track
 ```
-## 4. Explanation
+
+## 4. Code explanation
+
+For a deeper understanding, the way of usage and algorithm are explained in the following files:
+
+
+
+## 5. Theory
 ### ROS
 
 <img src="read_img/kinetic.png" align="right" width="157" height="130"/>
@@ -160,9 +167,10 @@ The resampling step is about generating new set of equally weight samples, consi
 
 ##### Propagate
 
-In order to propagate the particles, 
+In order to propagate the particles, a constant velocity system model with uniform distributed random noise was proposed, because the N particles have to be spread using this model, so in order to reduce the computational resources used, a simple model was chosen.
 
 ### Cascade Object Detector
+
 
 
 
