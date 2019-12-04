@@ -224,9 +224,21 @@ For the reason of avoiding complexity, the classifier training was done using Ma
 The training steps are very straightforward and I described them below, if you want to know more details, check Matlab wiki about [training classifiers](https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html) and [labeling images](https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html).
 
 1. Get a positive dataset, that means that you must have different images of your object in different circumstances, because this set will be used to train the detector and in order to get a good trained cascade, pictures of the soccer ball at all the real situations must be provided.
+
 2. Get a negative dataset, that means that you must have different background images where the object is not present, these are used to evaluate the detector and avoid detecting false positives. Here you should include pictures of things similar to the object, just to avoid errors in the identification.
+
+![datasets](read_img/datasets.jpeg)
+
 3. Once you have your positive and negative images in different folders, open Matlab Image Labeler.
+
 ![labeler](read_img/labeler.jpeg)
+
+4. Load your positive images.
+
+5. Define a new roi label.
+
+![define](read_img/define.jpeg)
+
 ## References
 
 1. ROS Team, "ROS Documentation", [Online]. Available: http://wiki.ros.org/
