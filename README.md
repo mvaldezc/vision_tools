@@ -146,7 +146,7 @@ Because of these properties, the Kalman Filter algorithm was implemented in code
 In order to detect and track the soccer ball, a Discrete-Time Linear Gaussian State Space Model of a particle with uniform acceleration was used, since it would detect the change of acceleration due to friction losses and have a better prediction [15]:
 
 <p align="center">
-<img src="read_img/sys_eq.PNG" width="180" height="56"/>
+<img src="read_img/eq_sys.PNG" width="180" height="56"/>
 <br/>
 <br/>
 <br/>
