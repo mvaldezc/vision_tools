@@ -229,25 +229,35 @@ A good recommendation is to take pictures with the same camera and the same reso
 
 2. Get a negative dataset, that means that you must have different background images where the object is not present, these are used to evaluate the detector and avoid detecting false positives. Here you should include pictures of things similar to the object and the environment that the camera will see in a normal operation, just to avoid errors in the identification.
 
+<p align="center">
 <img src="read_img/datasets.jpeg" width="40%"/>
+</p>
 
 3. Once you have your positive and negative images in different folders, open Matlab Image Labeler. This software will help us defining where the object is, inside all our positive images.
 
+<p align="center">
 <img src="read_img/labeler.jpeg" width="40%"/>
+</p>
 
 4. Click the load button and load your positive images.
 
 5. Define a new roi label.
 
+<p align="center">
 <img src="read_img/define.jpeg" width="40%"/>
+</p>
 
 6. Start labeling your pictures, this is made by drawing a rectangle that contains your object and keeping not to contain other objects inside this rectangle.
 
+<p align="center">
 <img src="read_img/label.jpeg" width="40%"/>
+</p>
 
 7. When you finish labeling, click on "export labels" and then "to workspace". In the export variable name, write "positiveInstances" and change the export format to "table". Then, you can close de image labeler. 
 
+<p align="center">
 <img src="read_img/export.jpeg" width="40%"/>
+</p>
 
 8. Now, copy this script on Matlab:
 
