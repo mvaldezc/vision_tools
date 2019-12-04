@@ -257,7 +257,7 @@ negativeImages = imageDatastore(negativeFolder);
 trainCascadeObjectDetector('ballDetector.xml',positiveInstances, negativeFolder,'ObjectTrainingSize',[24,24],'FalseAlarmRate',0.4,'NumCascadeStages',18, 'FeatureType','LBP')
 ```
 
-Change the negative folder text to your folder path. The next line will load the negative images and the last one will specify how to train the detector. The arguments of the detector are:
+Change the negative folder text according to your folder path. The next line in the code will load the negative images, and the last one will specify how to train the detector. The arguments of the detector are:
 * the name of the detector file that will be produced at the end
 * the positive images pointer
 * the negative folder path
