@@ -245,7 +245,28 @@ A good recommendation is to take pictures with the same camera and the same reso
 
 ![label](read_img/label.jpeg)
 
-7. 
+7. When you finish labeling, click on "export labels" and then "to workspace". In the export variable name, write "positiveInstances" and change the export format to "table". Then, you can close de image labeler. 
+
+8. Now, copy this script on Matlab:
+
+```Matlab
+negativeFolder ='C:\Users\marco\Documents\Proyectos\Haar\negative';
+negativeImages = imageDatastore(negativeFolder);
+trainCascadeObjectDetector('ballDetector.xml',positiveInstances, negativeFolder,'ObjectTrainingSize',[24,24],'FalseAlarmRate',0.4,'NumCascadeStages',18, 'FeatureType','LBP')
+```
+
+Change the negative folder text to your folder path. The next line will load the negative images and the last one will specify how to train the detector. The arguments of the detector are:
+* the name of the detector file that will be produced at the end
+* the positive images pointer
+* the negative folder path
+* the size of the window that will be used to probe if the object is in the images
+* the false alarm rate is a measure of how strict the detector will be. Lower values will provide a complex algorithm and will reduce the errors but can cause no detection of the object and a really slow algorithm.
+* the number of cascades stages, the cascade detectors work with multiple stages, each stage prove some features at the image and each stage is harder than the previous one, having more stages will produce a more specific detector.
+* the feature type specifies if the detector will use Haar, LBP or HOG. 
+
+9. Run the matlab script, at the end you will have in your folder an xml file with the object detector code. If you run out of negative images, provide more and run the script again. Usually a good detector requires at least 500 positive images and even more negative samples.  
+
+10. Change the path for the xml file in the corresponding kalmanfilter+haar program as specified in the installing section of this readme.
 
 ## References
 
