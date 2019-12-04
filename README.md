@@ -89,11 +89,15 @@ At the end, a report of results will appear:
 ```
 rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
 ```
+
+![color](read_img/color.png)
+
 #### Particle Filter + Color Detection
 ```
 rosrun vision_tools particlefilter
 ```
 
+![particle](read_img/particle.png)
 
 #### SURF
 ```
@@ -217,8 +221,12 @@ For mores information about some of these features, check this [opencv tutorial]
 #### Training
 
 For the reason of avoiding complexity, the classifier training was done using Matlab and the Computer Vision Toolbox.
-The steps are very straightforward, if you want to know more details, check Matlab wiki about [training classifiers](https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html) and [labeling images](https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html).
+The training steps are very straightforward and I described them below, if you want to know more details, check Matlab wiki about [training classifiers](https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html) and [labeling images](https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html).
 
+1. Get a positive dataset, that means that you must have different images of your object in different circumstances, because this set will be used to train the detector and in order to get a good trained cascade, pictures of the soccer ball at all the real situations must be provided.
+2. Get a negative dataset, that means that you must have different background images where the object is not present, these are used to evaluate the detector and avoid detecting false positives. Here you should include pictures of things similar to the object, just to avoid errors in the identification.
+3. Once you have your positive and negative images in different folders, open Matlab Image Labeler.
+![labeler](read_img/labeler.jpeg)
 ## References
 
 1. ROS Team, "ROS Documentation", [Online]. Available: http://wiki.ros.org/
