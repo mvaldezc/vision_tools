@@ -79,32 +79,40 @@ After running this node with this command (with the directory of your correspond
 `rosrun vision_tools detect 1 '/home/marco/catkin_ws/src/vision_tools/img/prueba1.mp4'`
 the following screen should appear:
 
-![haar](read_img/haar1.png)
+<p align="center">
+<img src="read_img/haar1.png" width="40%"/>
+</p>
 
 At the end, a report of results will appear:
 
-![haar](read_img/haar2.png)
+<p align="center">
+<img src="read_img/haar2.png" width="40%"/>
+</p>
 
 #### Kalman Filter + Color Detection
 ```
 rosrun vision_tools kalmanfilter <debugger mode (0/1)> [path to video]
 ```
 
-![color](read_img/color.png)
+<p align="center">
+<img src="read_img/color.png" width="40%"/>
+</p>
 
 #### Particle Filter + Color Detection
 ```
 rosrun vision_tools particlefilter
 ```
-
-![particle](read_img/particle.png)
+<p align="center">
+<img src="read_img/particle.png" width="40%"/>
+</p>
 
 #### SURF
 ```
 rosrun vision_tools SURF
 ```
-
-![surf](read_img/surf.png)
+<p align="center">
+<img src="read_img/surf.png" width="40%"/>
+</p>
 
 #### Dynamixel motors
 ```
