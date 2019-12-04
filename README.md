@@ -225,19 +225,27 @@ The training steps are very straightforward and I described them below, if you w
 
 1. Get a positive dataset, that means that you must have different images of your object in different circumstances, because this set will be used to train the detector and in order to get a good trained cascade, pictures of the soccer ball at all the real situations must be provided.
 
-2. Get a negative dataset, that means that you must have different background images where the object is not present, these are used to evaluate the detector and avoid detecting false positives. Here you should include pictures of things similar to the object, just to avoid errors in the identification.
+A good recommendation is to take pictures with the same camera and the same resolution that will be used, because the size of the object of interest is important for the detection algorithm.
+
+2. Get a negative dataset, that means that you must have different background images where the object is not present, these are used to evaluate the detector and avoid detecting false positives. Here you should include pictures of things similar to the object and the environment that the camera will see in a normal operation, just to avoid errors in the identification.
 
 ![datasets](read_img/datasets.jpeg)
 
-3. Once you have your positive and negative images in different folders, open Matlab Image Labeler.
+3. Once you have your positive and negative images in different folders, open Matlab Image Labeler. This software will help us defining where the object is, inside all our positive images.
 
 ![labeler](read_img/labeler.jpeg)
 
-4. Load your positive images.
+4. Click the load button and load your positive images.
 
 5. Define a new roi label.
 
 ![define](read_img/define.jpeg)
+
+6. Start labeling your pictures, this is made by drawing a rectangle that contains your object and keeping not to contain other objects inside this rectangle.
+
+![label](read_img/label.jpeg)
+
+7. 
 
 ## References
 
