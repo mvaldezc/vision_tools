@@ -247,9 +247,11 @@ A good recommendation is to take pictures with the same camera and the same reso
 
 7. When you finish labeling, click on "export labels" and then "to workspace". In the export variable name, write "positiveInstances" and change the export format to "table". Then, you can close de image labeler. 
 
+![export](read_img/export.jpeg)
+
 8. Now, copy this script on Matlab:
 
-```Matlab
+```matlab
 negativeFolder ='C:\Users\marco\Documents\Proyectos\Haar\negative';
 negativeImages = imageDatastore(negativeFolder);
 trainCascadeObjectDetector('ballDetector.xml',positiveInstances, negativeFolder,'ObjectTrainingSize',[24,24],'FalseAlarmRate',0.4,'NumCascadeStages',18, 'FeatureType','LBP')
