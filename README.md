@@ -195,9 +195,49 @@ The steps for training your own cascade are described below, however if you want
 4.
 5.
 
+<<<<<<< HEAD
 (https://www.mathworks.com/videos/series/understanding-kalman-filters.html)
 https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html
 https://www.ros.org/
 http://wiki.ros.org/ROS
+=======
+Change the negative folder text to your folder path. The next line will load the negative images and the last one will specify how to train the detector. The arguments of the detector are:
+* the name of the detector file that will be produced at the end
+* the positive images pointer
+* the negative folder path
+* the size of the window that will be used to probe if the object is in the images
+* the false alarm rate is a measure of how strict the detector will be. Lower values will provide a complex algorithm and will reduce the errors but can cause no detection of the object and a really slow algorithm.
+* the number of cascades stages, the cascade detectors work with multiple stages, each stage prove some features at the image and each stage is harder than the previous one, having more stages will produce a more specific detector.
+* the feature type specifies if the detector will use Haar, LBP or HOG. 
+
+9. Run the matlab script, at the end you will have in your folder an xml file with the object detector code. If you run out of negative images, provide more and run the script again. Usually a good detector requires at least 500 positive images and even more negative samples.  
+
+10. Change the path for the xml file in the corresponding kalmanfilter+haar program as specified in the installing section of this readme.
+
+## References
+
+1. ROS Team, "ROS Documentation", [Online]. Available: http://wiki.ros.org/
+2. Alejandro Aceves, "Opencv tutorial", [Online]. Available: https://github.com/aaceves/opencv_tutorial
+3. Alejandro Aceves, Marco Valdez, Sarai Hernández, Bryan Urbina, "Dynamixel example", [Online]. Available: https://github.com/aaceves/example_dynamixel
+4. MathWorks, "Computer Vision Toolbox", [Online]. Available: https://www.mathworks.com/products/computer-vision.html
+5. ROS Team, "Robotic Operating System", [Online]. Available: https://www.ros.org/
+6. OpenCV Team, "Open Source Computer Vision Library", [Online]. Available: https://opencv.org/
+7. ROS Team, "Vision OpenCV package", [Online]. Available: https://wiki.ros.org/vision_opencv
+8. OpenCV Team, "OpenCV API Reference", [Online]. Available: https://docs.opencv.org/2.4/modules/refman.html
+9. OpenCV Team, "OpenCV Tutorials", [Online]. Available: https://docs.opencv.org/3.3.1/d9/df8/tutorial_root.html
+10. Anonymous, "OpenCV", [Online]. Available: http://acodigo.blogspot.com/p/tutorial-opencv.html
+11. OpenCV Team, "OpenCL", [Online]. Available: https://opencv.org/opencl/
+12. MathWorks, "Understanding Kalman Filters", [Online]. Available: https://www.mathworks.com/videos/series/understanding-kalman-filters.html
+13. Aström, Murray, "Feedback Systems", California Institute of Technology. Princeton University Press.
+14. Greg Welch, Gary Bishop, “An introduction to the Kalman filter”, University of North Carolina at Chapel Hill. Available: http://www.cs.unc.edu/~tracker/media/pdf/SIGGRAPH2001_CoursePack_08.pdf
+15. MathWorks, "Using Kalman Filter for Object Tracking", [Online]. Available: https://www.mathworks.com/help/vision/examples/using-kalman-filter-for-object-tracking.html
+16. Vincent Spruyt, "How to draw a covariance error ellipse?", [Online]. Available: https://www.visiondummy.com/2014/04/draw-error-ellipse-representing-covariance-matrix/
+17. Thomas Schön and Fredrik Lindsten, "Learning of dynamical systems: Particle filters and Markov chain methods". 
+18. Andreas Svensson, "An introduction to particle filters", [Online]. Available: https://www.it.uu.se/katalog/andsv164/Teaching/Material/PF_Intro_2014_AndreasSvensson.pdf
+19. Andreas Svensson, "Particle Filter Explained without Equations", [Online]. Available: https://youtu.be/aUkBa1zMKv4
+20. OpenCV Team, "Cascade Classifier", [Online]. Available: https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
+21. MathWorks, "Train a Cascade Object Detector", [Online]. Available: https://www.mathworks.com/help/vision/ug/train-a-cascade-object-detector.html
+22. MathWorks, "Get Started with the Image Labeler", [Online]. Available: https://www.mathworks.com/help/vision/ug/get-started-with-the-image-labeler.html
+>>>>>>> parent of c5ac3c3... Update README.md
 
 https://www.visiondummy.com/2014/04/draw-error-ellipse-representing-covariance-matrix/
