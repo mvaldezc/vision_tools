@@ -2,7 +2,7 @@
 ## 1. Description
 <img src="read_img/captura_1.png" align="right" width="312" height="239"/>
 <p align="justify">
-The main  objective of this repository is to provide a set of computer vision tools to detect and track objects and to educate beginners about the emerging technologies that are used in robotic applications.  These systems where developed using the Robotic Operating System and the Open Source Computer Vision library for C++. It is important to remark that this package was particularly designed to identify a soccer ball inside a soccer field. The tools implemented in the repository are:
+The main  objective of this repository is to provide a set of computer vision tools for object detection, estimation and tracking while educating beginners about the emerging technologies that are used in robotic applications.  These systems where developed using the Robotic Operating System and the Open Source Computer Vision library for C++. It is important to remark that this package was particularly designed to identify a soccer ball inside a soccer field. The tools implemented in the repository are:
 </p>
 
 * Kalman Filter + HAAR / LBP Cascade
